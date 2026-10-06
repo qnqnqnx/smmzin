@@ -4,7 +4,7 @@
 // ============================================================
 
 export const SITE_CONFIG = {
-  brandName: "SMMZin",
+  brandName: "SMMZin.Com",
 
   // Địa chỉ website thật của bạn (không có dấu / ở cuối)
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://app.smmzin.com",
