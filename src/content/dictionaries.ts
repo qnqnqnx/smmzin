@@ -11,20 +11,70 @@ export type FooterColumn = { title: string; links: { label: string; href: string
 export type LegalSection = { heading: string; body: string };
 
 const vi = {
-  meta: {
-    title: "SMMZin — Nền tảng Social Media Marketing thế hệ mới",
-    description:
-      "SMMZin là nền tảng Social Media Marketing (SMM Panel) thế hệ mới giúp creators, agency và thương hiệu quản lý tăng trưởng mạng xã hội trên nhiều nền tảng. Sắp ra mắt.",
-    keywords: [
-      "SMMZin",
-      "SMM Panel",
-      "Social Media Marketing",
-      "nền tảng mạng xã hội",
-      "tăng trưởng mạng xã hội",
-      "quản lý mạng xã hội",
-      "API SMM",
-    ],
-  },
+meta: {
+  title: "SMMZin — SMM Panel & Nền tảng Social Media Marketing thế hệ mới",
+  description:
+    "SMMZin là SMM Panel thế hệ mới giúp creators, agency, reseller và thương hiệu quản lý tăng trưởng mạng xã hội. Hỗ trợ Facebook, Instagram, TikTok, YouTube, Telegram, X, Threads, Spotify. Sắp ra mắt.",
+  keywords: [
+    // Core
+    "SMMZin",
+    "SMM Panel",
+    "SMM Panel Việt Nam",
+    "SMM Panel giá rẻ",
+    "SMM Panel uy tín",
+    "panel SMM",
+    "hệ thống SMM Panel",
+    "nền tảng SMM Panel",
+    "SMM Panel cho Agency",
+    "SMM Panel cho Reseller",
+    "API SMM đại lý",
+    // Tăng like
+    "tăng like Facebook",
+    "tăng like TikTok",
+    "tăng like Instagram",
+    "mua like Facebook",
+    "buff like",
+    // Tăng follow
+    "tăng follow Facebook",
+    "tăng follow TikTok",
+    "tăng follow Instagram",
+    "mua follow",
+    "buff follow",
+    // Tăng view
+    "tăng view TikTok",
+    "tăng view YouTube",
+    "buff view TikTok",
+    "mua view TikTok",
+    // Tăng sub
+    "tăng sub YouTube",
+    "mua sub YouTube",
+    "buff sub",
+    // Tăng mắt live
+    "tăng mắt livestream TikTok",
+    "buff mắt live TikTok",
+    "tăng mắt live",
+    // Tương tác & Seeding
+    "tăng tương tác mạng xã hội",
+    "dịch vụ tăng tương tác",
+    "dịch vụ seeding",
+    "seeding mạng xã hội",
+    // Telegram
+    "mua thành viên Telegram",
+    "tăng member Telegram",
+    "buff Telegram",
+    // Informational
+    "SMM Panel là gì",
+    "buff là gì",
+    "buff like là gì",
+    "buff follow là gì",
+    "buff view là gì",
+    // Trust
+    "dịch vụ tăng like uy tín",
+    "tăng like giá rẻ",
+    "tăng follow không tụt",
+    "buff like không tụt",
+  ],
+},
 
   common: {
     comingSoon: "SẮP RA MẮT",
@@ -292,20 +342,63 @@ const vi = {
 export type Dictionary = typeof vi;
 
 const en: Dictionary = {
-  meta: {
-    title: "SMMZin — Next Generation Social Media Marketing Platform",
-    description:
-      "SMMZin is a next-generation Social Media Marketing platform (SMM Panel) that helps creators, agencies and brands manage social growth across multiple networks. Launching soon.",
-    keywords: [
-      "SMMZin",
-      "SMM Panel",
-      "Social Media Marketing",
-      "social media platform",
-      "social growth",
-      "social media management",
-      "SMM API",
-    ],
-  },
+meta: {
+  title: "SMMZin — Next Generation SMM Panel & Social Media Marketing Platform",
+  description:
+    "SMMZin is a next-generation SMM panel for creators, agencies, resellers and brands. Manage social media growth across Facebook, Instagram, TikTok, YouTube, Telegram, X, Threads and Spotify. Launching soon.",
+  keywords: [
+    // Core
+    "SMMZin",
+    "SMM panel",
+    "SMM panel 2026",
+    "best SMM panel",
+    "best SMM panel 2026",
+    "cheapest SMM panel",
+    "cheap SMM panel",
+    "affordable SMM panel",
+    "social media marketing panel",
+    "SMM panel Vietnam",
+    "best SMM panel in Vietnam",
+    // Reseller / Agency
+    "SMM panel for resellers",
+    "SMM reseller panel",
+    "best SMM panel for resellers",
+    "white label SMM panel",
+    "SMM panel for agencies",
+    "SMM panel API integration",
+    "SMM panel with API",
+    "SMM panel with PayPal",
+    "SMM panel instant delivery",
+    "wholesale social media services",
+    // Service-specific
+    "buy Instagram followers",
+    "buy Instagram likes",
+    "buy TikTok followers",
+    "buy TikTok views",
+    "buy YouTube views",
+    "buy YouTube subscribers",
+    "buy Facebook page likes",
+    "buy Facebook followers",
+    "buy Twitter followers",
+    "buy Spotify plays",
+    "buy Telegram members",
+    // Trust
+    "SMM panel reviews",
+    "trusted SMM panel",
+    "legit SMM panel",
+    "real SMM panel",
+    "non-drop SMM panel",
+    "SMM panel vs agency",
+    // Long-tail
+    "best SMM panel for Instagram",
+    "cheapest SMM panel for YouTube views",
+    "SMM panel for TikTok followers",
+    "SMM panel for small business",
+    "how to start an SMM panel business",
+    "what is an SMM panel",
+    "how does an SMM panel work",
+  ],
+},
 
   common: {
     comingSoon: "COMING SOON",
