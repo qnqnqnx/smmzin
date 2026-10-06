@@ -68,11 +68,13 @@ export default function Navbar({
       ].join(" ")}
     >
       <nav className="shell flex h-full items-center justify-between gap-3" aria-label="Primary">
+        {/* -------- Left: logo -------- */}
         <Link href={`/${locale}`} className="flex shrink-0 items-center gap-2.5 rounded-full" aria-label={brand}>
           <LogoMark />
           <span className="text-[17px] font-semibold tracking-[-0.02em]">{brand}</span>
         </Link>
 
+        {/* -------- Center: nav links (desktop only) -------- */}
         <ul className="hidden items-center gap-0.5 lg:flex">
           {items.map((item) => (
             <li key={item.href}>
@@ -86,35 +88,47 @@ export default function Navbar({
           ))}
         </ul>
 
-        <div className="flex items-center gap-2">
-          <Link
-            href={switchHref}
-            aria-label={languageLabel}
-            className="hidden items-center gap-1 rounded-full border border-[color:var(--border)] px-3 py-1.5 text-[12px] font-medium tracking-wide transition-colors hover:border-[color:var(--border-strong)] sm:inline-flex"
-          >
-            <span className={locale === "vi" ? "text-[color:var(--text)]" : "text-[color:var(--text-muted)]"}>VI</span>
-            <span className="text-[color:var(--text-muted)] opacity-40">/</span>
-            <span className={locale === "en" ? "text-[color:var(--text)]" : "text-[color:var(--text-muted)]"}>EN</span>
-          </Link>
+        {/* -------- Right: actions -------- */}
+        <div className="flex shrink-0 items-center gap-2">
+          {/* Language switch — shown from 640px up */}
+          <div className="hidden sm:block">
+            <Link
+              href={switchHref}
+              aria-label={languageLabel}
+              className="inline-flex items-center gap-1 rounded-full border border-[color:var(--border)] px-3 py-1.5 text-[12px] font-medium tracking-wide transition-colors hover:border-[color:var(--border-strong)]"
+            >
+              <span className={locale === "vi" ? "text-[color:var(--text)]" : "text-[color:var(--text-muted)]"}>VI</span>
+              <span className="text-[color:var(--text-muted)] opacity-40">/</span>
+              <span className={locale === "en" ? "text-[color:var(--text)]" : "text-[color:var(--text-muted)]"}>EN</span>
+            </Link>
+          </div>
 
+          {/* Theme toggle — always visible */}
           <ThemeToggle labelDark={themeLabelDark} labelLight={themeLabelLight} />
 
+          {/* Try Demo — shown from 768px up */}
           {hasDemo && (
-            <a
-              href={SITE_CONFIG.demoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-ghost hidden !h-9 !px-4 text-[13px] md:inline-flex"
-            >
-              {demoLabel}
-              <ArrowUpRight size={14} />
-            </a>
+            <div className="hidden md:block">
+              <a
+                href={SITE_CONFIG.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-ghost !h-9 !px-4 text-[13px]"
+              >
+                {demoLabel}
+                <ArrowUpRight size={14} />
+              </a>
+            </div>
           )}
 
-          <a href="#notify" className="btn btn-primary hidden !h-9 !px-4 text-[13px] sm:inline-flex">
-            {notifyLabel}
-          </a>
+          {/* Notify Me — shown from 640px up */}
+          <div className="hidden sm:block">
+            <a href="#notify" className="btn btn-primary !h-9 !px-4 text-[13px]">
+              {notifyLabel}
+            </a>
+          </div>
 
+          {/* Hamburger — shown below 1024px */}
           <button
             type="button"
             onClick={() => setOpen((value) => !value)}
@@ -128,6 +142,7 @@ export default function Navbar({
         </div>
       </nav>
 
+      {/* -------- Mobile menu -------- */}
       {open && (
         <div
           id="mobile-menu"
@@ -155,7 +170,11 @@ export default function Navbar({
             >
               {locale === "vi" ? "Tiếng Việt / EN" : "English / VI"}
             </Link>
-            <a href="#notify" onClick={() => setOpen(false)} className="btn btn-primary !h-10 flex-1 text-[13px]">
+            <a
+              href="#notify"
+              onClick={() => setOpen(false)}
+              className="btn btn-primary !h-10 flex-1 text-[13px]"
+            >
               {notifyLabel}
             </a>
           </div>
