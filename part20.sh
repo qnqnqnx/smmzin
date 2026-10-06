@@ -1,3 +1,7 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+cat > src/middleware.ts << 'EOF'
 import { NextResponse, type NextRequest } from "next/server";
 
 const LOCALES = ["vi", "en"] as const;
@@ -80,3 +84,6 @@ export const config = {
     "/((?!_next/|api/|favicon\\.svg|og-image\\.svg|site\\.webmanifest|robots\\.txt|sitemap\\.xml).*)",
   ],
 };
+EOF
+
+echo "part20 done"
