@@ -674,28 +674,30 @@ html[data-theme="light"] .notify-form input:focus {
 .brand-name {
   display: inline-flex;
   align-items: baseline;
-  font-weight: 600;
-  letter-spacing: -0.03em;
+  font-weight: 700;
+  letter-spacing: -0.022em;
   font-feature-settings: "ss01", "cv11", "calt";
+  font-optical-sizing: auto;
   line-height: 1;
   transition: opacity 0.25s ease;
 }
 
 .brand-name .brand-main {
   color: var(--text);
+  font-weight: 700;
 }
 
 .brand-name .brand-accent {
   color: var(--accent);
-  font-weight: 700;
-  letter-spacing: -0.035em;
+  font-weight: 750;
+  letter-spacing: -0.028em;
   text-shadow: 0 0 22px rgba(142, 214, 173, 0.28);
 }
 
 .brand-name .brand-suffix {
   color: var(--text-muted);
   font-weight: 400;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.018em;
   margin-left: 1px;
 }
 
