@@ -17,3 +17,6 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 *.tsbuildinfo
+
+# Build helper scripts (không cần cho web)
+part*.sh
