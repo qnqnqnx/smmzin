@@ -4,6 +4,7 @@ import { SITE_CONFIG } from "@/content/site.config";
 import { resolveLink } from "@/lib/i18n";
 import { InstagramMark, FacebookMark, TelegramMark, XMark } from "./Icons";
 import { LogoMark } from "./Logo";
+import BrandName from "./BrandName";
 
 export default function Footer({ dict, locale }: { dict: Dictionary; locale: string }) {
   const socials = [
@@ -22,7 +23,7 @@ export default function Footer({ dict, locale }: { dict: Dictionary; locale: str
           <div>
             <div className="flex items-center gap-2.5">
               <LogoMark />
-              <span className="text-[17px] font-semibold tracking-[-0.02em]">{SITE_CONFIG.brandName}</span>
+              <BrandName />
             </div>
             <p className="mt-4 max-w-[36ch] text-[14px] leading-relaxed text-[color:var(--text-muted)]">
               {dict.footer.description}

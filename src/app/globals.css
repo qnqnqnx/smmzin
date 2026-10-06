@@ -667,3 +667,44 @@ html[data-theme="light"] .notify-form input:focus {
     transition: none !important;
   }
 }
+
+/* ============================================================
+   BRAND NAME — SMMZin.Com
+   ============================================================ */
+.brand-name {
+  display: inline-flex;
+  align-items: baseline;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  font-feature-settings: "ss01", "cv11", "calt";
+  line-height: 1;
+  transition: opacity 0.25s ease;
+}
+
+.brand-name .brand-main {
+  color: var(--text);
+}
+
+.brand-name .brand-accent {
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  text-shadow: 0 0 22px rgba(142, 214, 173, 0.28);
+}
+
+.brand-name .brand-suffix {
+  color: var(--text-muted);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin-left: 1px;
+}
+
+a:hover .brand-name {
+  opacity: 0.85;
+}
+
+/* Light theme: tắt glow để không bị chói */
+html[data-theme="light"] .brand-name .brand-accent {
+  text-shadow: none;
+  color: var(--accent);
+}

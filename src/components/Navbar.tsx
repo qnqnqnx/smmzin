@@ -8,6 +8,7 @@ import { SITE_CONFIG } from "@/content/site.config";
 import { ArrowUpRight, Close, Menu } from "./Icons";
 import { LogoMark } from "./Logo";
 import ThemeToggle from "./ThemeToggle";
+import BrandName from "./BrandName";
 
 export default function Navbar({
   locale,
@@ -71,7 +72,7 @@ export default function Navbar({
         {/* -------- Left: logo -------- */}
         <Link href={`/${locale}`} className="flex shrink-0 items-center gap-2.5 rounded-full" aria-label={brand}>
           <LogoMark />
-          <span className="text-[17px] font-semibold tracking-[-0.02em]">{brand}</span>
+          <BrandName />
         </Link>
 
         {/* -------- Center: nav links (desktop only) -------- */}
