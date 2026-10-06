@@ -25,13 +25,20 @@ export function LogoMark({ size = 30 }: { size?: number }) {
         stroke="rgba(233,241,236,0.14)"
       />
 
-      {/* Chữ Z — một nét liền: ngang trên → chéo → ngang dưới */}
+      {/*
+        Chữ Z mềm mại:
+          - Thanh ngang trên: hơi cong lên (control point cao hơn)
+          - Nét chéo: thẳng xuống dưới-trái
+          - Thanh ngang dưới: hơi cong xuống (control point thấp hơn)
+        Đầu nét và góc nối bo tròn hoàn toàn.
+      */}
       <path
-        d="M10 10.5 H22 L10 21.5 H22"
+        d="M 10.5 11 Q 16 10, 21.5 11 L 10.5 21 Q 16 22, 21.5 21"
         stroke="url(#smmzin-mark-z)"
-        strokeWidth="2.6"
+        strokeWidth="2.4"
         strokeLinecap="round"
         strokeLinejoin="round"
+        fill="none"
       />
     </svg>
   );

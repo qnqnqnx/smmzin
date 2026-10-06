@@ -24,8 +24,7 @@
   <g transform="translate(96, 208)">
     <rect x="0" y="0" width="88" height="88" rx="26" fill="url(#mark)"/>
     <rect x="0" y="0" width="88" height="88" rx="26" fill="none" stroke="#e9f1ec" stroke-opacity="0.16"/>
-    <path d="M25 57 44 36l19 21" fill="none" stroke="#cdf0dd" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M25 70 44 49l19 21" fill="none" stroke="#6fa585" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.75"/>
+    <path d="M 26 32 Q 44 26, 62 32 L 26 62 Q 44 68, 62 62" fill="none" stroke="#cdf0dd" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
   <text x="216" y="252" font-family="Inter, Helvetica, Arial, sans-serif" font-size="46" font-weight="600" fill="#e9f1ec" letter-spacing="-1.2">SMMZin</text>
   <text x="96" y="392" font-family="Inter, Helvetica, Arial, sans-serif" font-size="66" font-weight="600" fill="#e9f1ec" letter-spacing="-2.4">Social Growth, Reimagined.</text>
