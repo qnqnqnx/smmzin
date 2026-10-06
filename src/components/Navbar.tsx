@@ -80,7 +80,7 @@ export default function Navbar({
             <li key={item.href}>
               <a
                 href={item.href}
-                className="rounded-full px-3.5 py-2 text-[13.5px] text-[color:var(--text-muted)] transition-colors hover:bg-white/[0.05] hover:text-[color:var(--text)]"
+                className="nav-link rounded-full px-3.5 py-2 text-[13.5px] text-[color:var(--text-muted)] transition-colors hover:text-[color:var(--text)]"
               >
                 {item.label}
               </a>

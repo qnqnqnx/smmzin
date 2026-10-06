@@ -72,6 +72,7 @@ export default function ApiPreview({ dict }: { dict: Dictionary }) {
                 <span className="text-[color:var(--accent)]">1000</span>
                 {"\n"}
                 <span className="text-[color:var(--text-muted)]">{"}"}</span>
+                <span className="code-cursor" />
               </code>
             </pre>
 

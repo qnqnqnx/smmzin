@@ -94,7 +94,7 @@ export default function NotifyMe({ dict, locale }: { dict: Dictionary; locale: s
               {dict.notify.success}
             </div>
           ) : (
-            <form onSubmit={handleSubmit} noValidate className="mx-auto mt-8 max-w-[480px]">
+            <form onSubmit={handleSubmit} noValidate className="notify-form mx-auto mt-8 max-w-[480px]">
               <label htmlFor="notify-email" className="sr-only">
                 {dict.notify.label}
               </label>

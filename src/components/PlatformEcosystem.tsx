@@ -2,6 +2,7 @@ import type { Dictionary } from "@/content/dictionaries";
 import { PlatformIcon } from "./PlatformIcons";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
+import SpotlightCard from "./SpotlightCard";
 
 export default function PlatformEcosystem({ dict }: { dict: Dictionary }) {
   return (
@@ -19,7 +20,7 @@ export default function PlatformEcosystem({ dict }: { dict: Dictionary }) {
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {dict.platforms.items.map((platform, index) => (
             <Reveal key={platform.key} delay={index * 40}>
-              <article className="card flex h-full flex-col p-5">
+              <SpotlightCard className="flex h-full flex-col p-5">
                 <div className="flex items-center gap-3">
                   <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[color:var(--border)] bg-white/[0.03] text-[color:var(--text)]">
                     <PlatformIcon name={platform.key} size={20} />
@@ -46,7 +47,7 @@ export default function PlatformEcosystem({ dict }: { dict: Dictionary }) {
                     ))}
                   </ul>
                 </div>
-              </article>
+              </SpotlightCard>
             </Reveal>
           ))}
         </div>

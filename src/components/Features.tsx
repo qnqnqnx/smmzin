@@ -2,6 +2,7 @@ import type { Dictionary } from "@/content/dictionaries";
 import { Activity, Code, LayoutGrid, Package, Users, Workflow } from "./Icons";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
+import SpotlightCard from "./SpotlightCard";
 
 const ICONS = [LayoutGrid, Workflow, Package, Activity, Code, Users];
 
@@ -23,7 +24,7 @@ export default function Features({ dict }: { dict: Dictionary }) {
             const Icon = ICONS[index] ?? LayoutGrid;
             return (
               <Reveal key={item.title} delay={index * 50}>
-                <article className="card group h-full p-6 transition-transform duration-300 hover:-translate-y-1">
+                <SpotlightCard className="h-full p-6">
                   <div className="flex items-start justify-between gap-4">
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[color:var(--border)] bg-white/[0.03] text-[color:var(--accent)]">
                       <Icon size={19} />
@@ -36,7 +37,7 @@ export default function Features({ dict }: { dict: Dictionary }) {
                   <p className="mt-2 text-[14px] leading-relaxed text-[color:var(--text-muted)]">
                     {item.description}
                   </p>
-                </article>
+                </SpotlightCard>
               </Reveal>
             );
           })}

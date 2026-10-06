@@ -1,6 +1,7 @@
 import type { Dictionary } from "@/content/dictionaries";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
+import SpotlightCard from "./SpotlightCard";
 
 export default function About({ dict }: { dict: Dictionary }) {
   return (
@@ -35,7 +36,7 @@ export default function About({ dict }: { dict: Dictionary }) {
         </Reveal>
 
         <Reveal delay={80}>
-          <div className="card p-6 sm:p-7">
+          <SpotlightCard className="p-6 sm:p-7">
             <div className="flex items-center gap-2 border-b border-[color:var(--border)] pb-4">
               <span className="h-2 w-2 rounded-full bg-[color:var(--accent)]" />
               <span className="h-2 w-2 rounded-full bg-white/15" />
@@ -57,7 +58,7 @@ export default function About({ dict }: { dict: Dictionary }) {
                 </li>
               ))}
             </ul>
-          </div>
+          </SpotlightCard>
         </Reveal>
       </div>
     </section>

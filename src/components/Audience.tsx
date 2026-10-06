@@ -2,6 +2,7 @@ import type { Dictionary } from "@/content/dictionaries";
 import { Briefcase, Building, Store, UserRound } from "./Icons";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
+import SpotlightCard from "./SpotlightCard";
 
 const ICONS = [UserRound, Briefcase, Store, Building];
 
@@ -23,7 +24,7 @@ export default function Audience({ dict }: { dict: Dictionary }) {
             const Icon = ICONS[index] ?? UserRound;
             return (
               <Reveal key={group.title} delay={index * 60}>
-                <article className="card h-full p-6">
+                <SpotlightCard className="h-full p-6">
                   <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[color:var(--border)] bg-white/[0.03] text-[color:var(--accent)]">
                     <Icon size={19} />
                   </span>
@@ -31,7 +32,7 @@ export default function Audience({ dict }: { dict: Dictionary }) {
                   <p className="mt-2 text-[14px] leading-relaxed text-[color:var(--text-muted)]">
                     {group.description}
                   </p>
-                </article>
+                </SpotlightCard>
               </Reveal>
             );
           })}

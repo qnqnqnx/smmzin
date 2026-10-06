@@ -18,7 +18,7 @@ export default function ProductPreview({ dict }: { dict: Dictionary }) {
         </Reveal>
 
         <Reveal delay={80}>
-          <div className="glass mt-10 rounded-[26px] p-2.5 sm:p-3">
+          <div className="preview-shell glass mt-10 rounded-[26px] p-2.5 sm:p-3">
             <div className="rounded-[20px] border border-[color:var(--border)] bg-[color:var(--bg-elev)] p-5 sm:p-7">
               <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[color:var(--border)] pb-5">
                 <div className="flex items-center gap-2.5">

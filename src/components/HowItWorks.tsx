@@ -19,7 +19,7 @@ export default function HowItWorks({ dict }: { dict: Dictionary }) {
           {dict.how.steps.map((step, index) => (
             <li key={step.number} className="bg-[color:var(--bg-elev)] p-6">
               <Reveal delay={index * 60}>
-                <span className="font-mono text-[12px] tracking-[0.12em] text-[color:var(--accent)]">
+                <span className="step-number font-mono text-[12px] tracking-[0.12em] text-[color:var(--accent)]">
                   {step.number}
                 </span>
                 <h3 className="mt-4 text-[17px] font-medium tracking-[-0.02em]">{step.title}</h3>
