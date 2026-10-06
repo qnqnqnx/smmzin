@@ -1,0 +1,13 @@
+{
+  "name": "SMMZin — Social Media Marketing Platform",
+  "short_name": "SMMZin",
+  "description": "Next-generation social media marketing platform. Launching soon.",
+  "start_url": "/vi",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#05090a",
+  "theme_color": "#05090a",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
