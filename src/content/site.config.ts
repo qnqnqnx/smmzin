@@ -49,7 +49,7 @@ export const SITE_CONFIG = {
   // MẠNG XÃ HỘI (hiện ở footer)
   // ----------------------------------------------------------
   socialLinks: {
-    facebook: "https://facebook.com/YOUR-PAGE",
+    facebook: "https://www.facebook.com/profile.php?id=61588850413247",
     instagram: "https://instagram.com/YOUR-PAGE",
     telegram: "https://t.me/YOUR-CHANNEL",
     x: "https://x.com/YOUR-HANDLE",
