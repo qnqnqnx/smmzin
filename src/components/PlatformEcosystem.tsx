@@ -2,6 +2,7 @@
 
 import { useMemo, useState, type CSSProperties, type MouseEvent } from "react";
 import type { Dictionary } from "@/content/dictionaries";
+import type { PlatformItem } from "@/content/platforms";
 import { rafThrottle } from "@/lib/throttle";
 import { ArrowRight, Check } from "./Icons";
 import { PlatformIcon } from "./PlatformIcons";
@@ -9,7 +10,7 @@ import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 
 export default function PlatformEcosystem({ dict }: { dict: Dictionary }) {
-  const items = dict.platforms.items;
+  const items: PlatformItem[] = dict.platforms.items;
   const [active, setActive] = useState<string>(items[0].key);
 
   // Lưu ý: currentTarget của React event bị null sau khi handler return.

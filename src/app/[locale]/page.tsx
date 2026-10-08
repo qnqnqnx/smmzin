@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getDictionary } from "@/content/dictionaries";
+import { getDictionary, type FaqItem } from "@/content/dictionaries";
 import { SITE_CONFIG } from "@/content/site.config";
 import { getRemainingMs } from "@/lib/countdown";
 import { isLocale, locales, type Locale } from "@/lib/i18n";
@@ -79,7 +79,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
       {
         "@type": "FAQPage",
         "@id": `${pageUrl}/#faq`,
-        mainEntity: dict.faq.items.map((item) => ({
+        mainEntity: (dict.faq.items as FaqItem[]).map((item) => ({
           "@type": "Question",
           name: item.q,
           acceptedAnswer: { "@type": "Answer", text: item.a },

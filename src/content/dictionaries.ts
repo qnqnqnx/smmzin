@@ -323,6 +323,8 @@ const vi = {
   },
 };
 
+export type Dictionary = typeof vi;
+
 const en: Dictionary = {
   meta: {
     title: "SMMZin — Next Generation SMM Panel & Social Media Marketing Platform",
