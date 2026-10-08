@@ -1379,3 +1379,1631 @@ body {
 }
 
 /* ----- Desktop (≥640px): giữ nguyên wrap (đã có sẵn) ----- */
+
+/* ============================================================
+   COUNTRIES — Danh sách quốc gia
+   ============================================================ */
+.country-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 8px 12px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0%, rgba(255, 255, 255, 0.008) 100%);
+  text-align: center;
+  text-decoration: none;
+  height: 100%;
+  justify-content: space-between;
+  transition:
+    border-color 0.3s ease,
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease,
+    background-color 0.3s ease;
+}
+
+.country-card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-3px);
+  box-shadow:
+    0 18px 40px -20px rgba(79, 125, 94, 0.5),
+    0 0 0 1px rgba(142, 214, 173, 0.15) inset;
+}
+
+.country-flag {
+  width: 48px;
+  height: 36px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  object-fit: cover;
+  display: block;
+}
+
+.country-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.country-tag {
+  display: inline-block;
+  margin-top: 2px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(142, 214, 173, 0.08);
+  border: 1px solid rgba(142, 214, 173, 0.22);
+  line-height: 1.4;
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Light theme */
+html[data-theme="light"] .country-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.6) 100%);
+  box-shadow: 0 1px 3px rgba(14, 26, 20, 0.04);
+}
+
+html[data-theme="light"] .country-card:hover {
+  box-shadow:
+    0 18px 40px -20px rgba(46, 77, 56, 0.35),
+    0 0 0 1px rgba(47, 111, 71, 0.15) inset;
+}
+
+html[data-theme="light"] .country-tag {
+  color: var(--accent);
+  background: rgba(47, 111, 71, 0.08);
+  border-color: rgba(47, 111, 71, 0.22);
+}
+
+html[data-theme="light"] .country-flag {
+  box-shadow:
+    0 2px 8px rgba(14, 26, 20, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .country-card {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* ============================================================
+   TIGHTEN SECTION SPACING — nhích các section lại gần hơn ~20%
+   ============================================================ */
+.section {
+  padding-block: clamp(44px, 5vw, 76px);
+}
+
+/* Country card — coming soon state */
+.country-card-soon {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.country-card-soon:hover {
+  transform: none !important;
+  border-color: var(--border) !important;
+  box-shadow: none !important;
+}
+
+/* Card available — có mũi tên chỉ hướng */
+a.country-card::after {
+  content: "↗";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 11px;
+  color: var(--text-muted);
+  opacity: 0.5;
+  transition: opacity 0.25s ease, color 0.25s ease;
+}
+
+a.country-card:hover::after {
+  opacity: 1;
+  color: var(--accent);
+}
+
+a.country-card {
+  position: relative;
+}
+
+/* ============================================================
+   VIETNAM PAGE ANIMATIONS
+   ============================================================ */
+
+@keyframes vn-flag-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 8px 24px rgba(218, 37, 29, 0.35));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 12px 32px rgba(218, 37, 29, 0.55));
+    transform: scale(1.02);
+  }
+}
+
+.vn-flag-pulse {
+  animation: vn-flag-pulse 4s ease-in-out infinite;
+}
+
+@keyframes vn-halo-pulse {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.55;
+    transform: scale(1.06);
+  }
+}
+
+.vn-halo-pulse {
+  animation: vn-halo-pulse 4s ease-in-out infinite;
+}
+
+@keyframes vn-drum-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 12px rgba(218, 37, 29, 0.2))
+            drop-shadow(0 0 24px rgba(255, 205, 0, 0.08));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(218, 37, 29, 0.35))
+            drop-shadow(0 0 40px rgba(255, 205, 0, 0.15));
+  }
+}
+
+.vn-drum-glow {
+  animation: vn-drum-glow 6s ease-in-out infinite;
+}
+
+.vn-platform-card {
+  transition:
+    border-color 0.3s ease,
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s ease;
+}
+
+.vn-platform-card:hover {
+  border-color: rgba(218, 37, 29, 0.45) !important;
+  transform: translateY(-4px);
+  box-shadow:
+    0 20px 50px -25px rgba(218, 37, 29, 0.6),
+    0 0 0 1px rgba(218, 37, 29, 0.15) inset;
+}
+
+.vn-payment-row {
+  padding-left: 20px;
+  padding-right: 20px;
+  transition: background-color 0.25s ease;
+}
+
+@media (min-width: 640px) {
+  .vn-payment-row {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+}
+
+.vn-payment-row:hover {
+  background-color: rgba(218, 37, 29, 0.05);
+}
+
+@keyframes vn-step-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(142, 214, 173, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(142, 214, 173, 0);
+  }
+}
+
+.vn-step-dot {
+  animation: vn-step-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes vn-section-drift {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.vn-section-drift {
+  animation: vn-section-drift 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vn-flag-pulse,
+  .vn-halo-pulse,
+  .vn-drum-glow,
+  .vn-step-dot,
+  .vn-section-drift {
+    animation: none !important;
+  }
+  .vn-platform-card:hover {
+    transform: none !important;
+  }
+  .vn-payment-row:hover {
+    background-color: transparent !important;
+  }
+}
+
+/* ============================================================
+   CHINA PAGE ANIMATIONS
+   ============================================================ */
+
+
+
+
+
+
+
+.cn-platform-card {
+  transition:
+    border-color 0.3s ease,
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s ease;
+}
+
+.cn-platform-card:hover {
+  border-color: rgba(222, 41, 16, 0.45) !important;
+  transform: translateY(-4px);
+  box-shadow:
+    0 20px 50px -25px rgba(222, 41, 16, 0.6),
+    0 0 0 1px rgba(222, 41, 16, 0.15) inset;
+}
+
+.cn-payment-row {
+  padding-left: 20px;
+  padding-right: 20px;
+  transition: background-color 0.25s ease;
+}
+
+@media (min-width: 640px) {
+  .cn-payment-row {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+}
+
+.cn-payment-row:hover {
+  background-color: rgba(222, 41, 16, 0.05);
+}
+
+
+/* Cờ China — nhấp nhô nhẹ ngược pha */
+
+
+
+/* ============================================================
+   CHINA PANDA ANIMATION v3 — tách positioning và animation
+   ============================================================ */
+
+/* Gấu trúc nhảy nhẹ + lắc */
+@keyframes cn-panda-bounce-v3 {
+  0%, 100% {
+    transform: translateY(0) rotate(-1.5deg) scale(1);
+  }
+  25% {
+    transform: translateY(-14px) rotate(0deg) scale(1.02);
+  }
+  50% {
+    transform: translateY(0) rotate(1.5deg) scale(1);
+  }
+  75% {
+    transform: translateY(-14px) rotate(0deg) scale(1.02);
+  }
+}
+
+.cn-panda-bounce {
+  animation: cn-panda-bounce-v3 3.5s ease-in-out infinite;
+  transform-origin: center center;
+  transform-box: fill-box;
+}
+
+/* Trúc lắc — gốc ở chân cây */
+@keyframes cn-bamboo-sway-kf {
+  0%, 100% {
+    transform: rotate(-1.2deg);
+  }
+  50% {
+    transform: rotate(1.2deg);
+  }
+}
+
+@keyframes cn-bamboo-sway-rev-kf {
+  0%, 100% {
+    transform: rotate(1.2deg);
+  }
+  50% {
+    transform: rotate(-1.2deg);
+  }
+}
+
+.cn-bamboo-sway {
+  animation: cn-bamboo-sway-kf 5.5s ease-in-out infinite;
+  transform-origin: 0 0;
+}
+
+.cn-bamboo-sway-rev {
+  animation: cn-bamboo-sway-rev-kf 6s ease-in-out infinite;
+  transform-origin: 0 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cn-panda-bounce,
+  .cn-bamboo-sway,
+  .cn-bamboo-sway-rev {
+    animation: none !important;
+  }
+}
+
+/* ============================================================
+   CHINA PANDA — Gặm trúc
+   ============================================================ */
+
+/* Gấu trúc — chỉ nhún nhẹ toàn thân */
+@keyframes cn-panda-breathe {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+.cn-panda-munch {
+  animation: cn-panda-breathe 4s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* Đầu gấu — gật gật như đang gặm */
+@keyframes cn-head-munch {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-2px) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(1px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-2px) rotate(2deg);
+  }
+}
+
+.cn-panda-head {
+  animation: cn-head-munch 1.6s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: 0 0;
+}
+
+/* Cành trúc trong miệng — rung nhẹ đồng bộ với đầu */
+@keyframes cn-bamboo-munch {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-1px) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(0.5px) rotate(0.5deg);
+  }
+  75% {
+    transform: translateY(-1px) rotate(1deg);
+  }
+}
+
+.cn-panda-bamboo {
+  animation: cn-bamboo-munch 1.6s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: 100% 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cn-panda-munch,
+  .cn-panda-head,
+  .cn-panda-bamboo {
+    animation: none !important;
+  }
+}
+
+/* ============================================================
+   BANGLADESH PAGE ANIMATIONS
+   ============================================================ */
+
+/* Hổ Bengal — đuôi vẫy nhẹ */
+@keyframes bd-tiger-tail-wag {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(6deg);
+  }
+}
+
+.bd-tiger-tail {
+  animation: bd-tiger-tail-wag 3.5s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: 100% 20%;
+}
+
+/* Hoa súng — đung đưa */
+@keyframes bd-lily-sway-kf {
+  0%, 100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes bd-lily-sway-rev-kf {
+  0%, 100% {
+    transform: rotate(3deg);
+  }
+  50% {
+    transform: rotate(-3deg);
+  }
+}
+
+.bd-lily-sway {
+  animation: bd-lily-sway-kf 5s ease-in-out infinite;
+  transform-origin: 0 40px;
+}
+
+.bd-lily-sway-rev {
+  animation: bd-lily-sway-rev-kf 5.5s ease-in-out infinite;
+  transform-origin: 0 30px;
+}
+
+/* Cờ Bangladesh — nhấp nhô nhẹ */
+@keyframes bd-flag-float-kf {
+  0%, 100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(2deg);
+  }
+}
+
+.bd-flag-float {
+  animation: bd-flag-float-kf 5s ease-in-out infinite;
+}
+
+/* Card platform — hover glow xanh lá */
+.bd-platform-card {
+  transition:
+    border-color 0.3s ease,
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s ease;
+}
+
+.bd-platform-card:hover {
+  border-color: rgba(0, 106, 78, 0.5) !important;
+  transform: translateY(-4px);
+  box-shadow:
+    0 20px 50px -25px rgba(0, 106, 78, 0.6),
+    0 0 0 1px rgba(0, 106, 78, 0.15) inset;
+}
+
+/* Payment row */
+.bd-payment-row {
+  padding-left: 20px;
+  padding-right: 20px;
+  transition: background-color 0.25s ease;
+}
+
+@media (min-width: 640px) {
+  .bd-payment-row {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+}
+
+.bd-payment-row:hover {
+  background-color: rgba(0, 106, 78, 0.05);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bd-tiger-tail,
+  .bd-lily-sway,
+  .bd-lily-sway-rev,
+  .bd-flag-float {
+    animation: none !important;
+  }
+  .bd-platform-card:hover {
+    transform: none !important;
+  }
+  .bd-payment-row:hover {
+    background-color: transparent !important;
+  }
+}
+
+/* ============================================================
+   USA PAGE ANIMATIONS
+   ============================================================ */
+
+/* Đại bàng — cánh vỗ nhẹ */
+@keyframes us-eagle-flap-l {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-8deg);
+  }
+}
+
+@keyframes us-eagle-flap-r {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(8deg);
+  }
+}
+
+.us-eagle-wing-l {
+  animation: us-eagle-flap-l 2.5s ease-in-out infinite;
+  transform-origin: 0 0;
+  transform-box: fill-box;
+}
+
+.us-eagle-wing-r {
+  animation: us-eagle-flap-r 2.5s ease-in-out infinite;
+  transform-origin: 0 0;
+  transform-box: fill-box;
+}
+
+/* Ngôi sao lấp lánh */
+@keyframes us-star-twinkle-kf {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.15);
+  }
+}
+
+.us-star-twinkle {
+  animation: us-star-twinkle-kf 3s ease-in-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+.us-star-twinkle-2 {
+  animation: us-star-twinkle-kf 3.5s ease-in-out infinite;
+  animation-delay: 1s;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+/* Cờ Mỹ — nhấp nhô nhẹ */
+@keyframes us-flag-float-kf {
+  0%, 100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(2deg);
+  }
+}
+
+.us-flag-float {
+  animation: us-flag-float-kf 5s ease-in-out infinite;
+}
+
+/* Card platform — hover glow navy */
+.us-platform-card {
+  transition:
+    border-color 0.3s ease,
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s ease;
+}
+
+.us-platform-card:hover {
+  border-color: rgba(60, 59, 110, 0.55) !important;
+  transform: translateY(-4px);
+  box-shadow:
+    0 20px 50px -25px rgba(60, 59, 110, 0.65),
+    0 0 0 1px rgba(60, 59, 110, 0.18) inset;
+}
+
+/* Payment row */
+.us-payment-row {
+  padding-left: 20px;
+  padding-right: 20px;
+  transition: background-color 0.25s ease;
+}
+
+@media (min-width: 640px) {
+  .us-payment-row {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+}
+
+.us-payment-row:hover {
+  background-color: rgba(60, 59, 110, 0.05);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .us-eagle-wing-l,
+  .us-eagle-wing-r,
+  .us-star-twinkle,
+  .us-star-twinkle-2,
+  .us-flag-float {
+    animation: none !important;
+  }
+  .us-platform-card:hover {
+    transform: none !important;
+  }
+  .us-payment-row:hover {
+    background-color: transparent !important;
+  }
+}
+
+/* ============================================================
+   COUNTRY PAGE — Shared styles (mọi nước dùng chung)
+   ============================================================ */
+
+/* Cờ quốc gia — nhấp nhô nhẹ */
+@keyframes country-flag-float-kf {
+  0%, 100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(2deg);
+  }
+}
+
+.country-flag-float {
+  animation: country-flag-float-kf 5s ease-in-out infinite;
+}
+
+/* Card — hover glow nhẹ màu accent chung */
+.country-platform-card {
+  transition:
+    border-color 0.3s ease,
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s ease;
+}
+
+.country-platform-card:hover {
+  border-color: var(--border-strong) !important;
+  transform: translateY(-4px);
+  box-shadow:
+    0 20px 50px -25px rgba(79, 125, 94, 0.55),
+    0 0 0 1px rgba(142, 214, 173, 0.15) inset;
+}
+
+/* Payment row */
+.country-payment-row {
+  padding-left: 16px;
+  padding-right: 16px;
+  transition: background-color 0.25s ease;
+}
+
+@media (min-width: 640px) {
+  .country-payment-row {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+}
+
+.country-payment-row:hover {
+  background-color: rgba(142, 214, 173, 0.04);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .country-flag-float {
+    animation: none !important;
+  }
+  .country-platform-card:hover {
+    transform: none !important;
+  }
+  .country-payment-row:hover {
+  background-color: rgba(142, 214, 173, 0.04);
+}
+}
+
+/* ============================================================
+   INDIA PAGE ANIMATIONS
+   ============================================================ */
+
+@keyframes in-lotus-sway-kf {
+  0%, 100% { transform: rotate(-2.5deg); }
+  50% { transform: rotate(2.5deg); }
+}
+
+@keyframes in-lotus-sway-rev-kf {
+  0%, 100% { transform: rotate(2.5deg); }
+  50% { transform: rotate(-2.5deg); }
+}
+
+.in-lotus-sway {
+  animation: in-lotus-sway-kf 5s ease-in-out infinite;
+  transform-origin: 0 35px;
+  transform-box: fill-box;
+}
+
+.in-lotus-sway-rev {
+  animation: in-lotus-sway-rev-kf 5.5s ease-in-out infinite;
+  transform-origin: 0 35px;
+  transform-box: fill-box;
+}
+
+@keyframes in-star-twinkle-kf {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.15); }
+}
+
+.in-star-twinkle {
+  animation: in-star-twinkle-kf 3s ease-in-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+.in-star-twinkle-rev {
+  animation: in-star-twinkle-kf 3.5s ease-in-out infinite;
+  animation-delay: 1s;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+@keyframes in-flag-float-kf {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-6px) rotate(2deg); }
+}
+
+.in-flag-float {
+  animation: in-flag-float-kf 5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .in-lotus-sway,
+  .in-lotus-sway-rev,
+  .in-star-twinkle,
+  .in-star-twinkle-rev,
+  .in-flag-float {
+    animation: none !important;
+  }
+}
+
+/* ============================================================
+   THAILAND PAGE ANIMATIONS
+   ============================================================ */
+
+@keyframes th-jasmine-sway-kf {
+  0%, 100% { transform: rotate(-2.5deg); }
+  50% { transform: rotate(2.5deg); }
+}
+
+@keyframes th-jasmine-sway-rev-kf {
+  0%, 100% { transform: rotate(2.5deg); }
+  50% { transform: rotate(-2.5deg); }
+}
+
+.th-jasmine-sway {
+  animation: th-jasmine-sway-kf 5s ease-in-out infinite;
+  transform-origin: 0 30px;
+  transform-box: fill-box;
+}
+
+.th-jasmine-sway-rev {
+  animation: th-jasmine-sway-rev-kf 5.5s ease-in-out infinite;
+  transform-origin: 0 30px;
+  transform-box: fill-box;
+}
+
+@keyframes th-star-twinkle-kf {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.15); }
+}
+
+.th-star-twinkle {
+  animation: th-star-twinkle-kf 3s ease-in-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+.th-star-twinkle-rev {
+  animation: th-star-twinkle-kf 3.5s ease-in-out infinite;
+  animation-delay: 1s;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+@keyframes th-flag-float-kf {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-6px) rotate(2deg); }
+}
+
+.th-flag-float {
+  animation: th-flag-float-kf 5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .th-jasmine-sway,
+  .th-jasmine-sway-rev,
+  .th-star-twinkle,
+  .th-star-twinkle-rev,
+  .th-flag-float {
+    animation: none !important;
+  }
+}
+
+/* ============================================================
+   THAILAND PAGE ANIMATIONS
+   ============================================================ */
+
+@keyframes th-jasmine-sway-kf {
+  0%, 100% { transform: rotate(-2.5deg); }
+  50% { transform: rotate(2.5deg); }
+}
+
+@keyframes th-jasmine-sway-rev-kf {
+  0%, 100% { transform: rotate(2.5deg); }
+  50% { transform: rotate(-2.5deg); }
+}
+
+.th-jasmine-sway {
+  animation: th-jasmine-sway-kf 5s ease-in-out infinite;
+  transform-origin: 0 30px;
+  transform-box: fill-box;
+}
+
+.th-jasmine-sway-rev {
+  animation: th-jasmine-sway-rev-kf 5.5s ease-in-out infinite;
+  transform-origin: 0 30px;
+  transform-box: fill-box;
+}
+
+@keyframes th-star-twinkle-kf {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.15); }
+}
+
+.th-star-twinkle {
+  animation: th-star-twinkle-kf 3s ease-in-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+.th-star-twinkle-rev {
+  animation: th-star-twinkle-kf 3.5s ease-in-out infinite;
+  animation-delay: 1s;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+@keyframes th-flag-float-kf {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-6px) rotate(2deg); }
+}
+
+.th-flag-float {
+  animation: th-flag-float-kf 5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .th-jasmine-sway,
+  .th-jasmine-sway-rev,
+  .th-star-twinkle,
+  .th-star-twinkle-rev,
+  .th-flag-float {
+    animation: none !important;
+  }
+}
+
+/* ============================================================
+   INDONESIA PAGE ANIMATIONS
+   ============================================================ */
+
+@keyframes id-melati-sway-kf {
+  0%, 100% { transform: rotate(-2.5deg); }
+  50% { transform: rotate(2.5deg); }
+}
+
+@keyframes id-melati-sway-rev-kf {
+  0%, 100% { transform: rotate(2.5deg); }
+  50% { transform: rotate(-2.5deg); }
+}
+
+.id-melati-sway {
+  animation: id-melati-sway-kf 5s ease-in-out infinite;
+  transform-origin: 0 30px;
+  transform-box: fill-box;
+}
+
+.id-melati-sway-rev {
+  animation: id-melati-sway-rev-kf 5.5s ease-in-out infinite;
+  transform-origin: 0 30px;
+  transform-box: fill-box;
+}
+
+/* Wayang sway — lắc nhẹ như đang biểu diễn */
+@keyframes id-wayang-sway-kf {
+  0%, 100% { transform: rotate(-1.5deg); }
+  50% { transform: rotate(1.5deg); }
+}
+
+.id-wayang-sway {
+  animation: id-wayang-sway-kf 4s ease-in-out infinite;
+  transform-origin: 0 80px;
+  transform-box: fill-box;
+}
+
+@keyframes id-star-twinkle-kf {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.15); }
+}
+
+.id-star-twinkle {
+  animation: id-star-twinkle-kf 3s ease-in-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+.id-star-twinkle-rev {
+  animation: id-star-twinkle-kf 3.5s ease-in-out infinite;
+  animation-delay: 1s;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+@keyframes id-flag-float-kf {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-6px) rotate(2deg); }
+}
+
+.id-flag-float {
+  animation: id-flag-float-kf 5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .id-melati-sway,
+  .id-melati-sway-rev,
+  .id-wayang-sway,
+  .id-star-twinkle,
+  .id-star-twinkle-rev,
+  .id-flag-float {
+    animation: none !important;
+  }
+}
+
+/* ============================================================
+   SOUTH KOREA PAGE ANIMATIONS
+   ============================================================ */
+
+@keyframes kr-flower-sway-kf {
+  0%, 100% { transform: rotate(-2.5deg); }
+  50% { transform: rotate(2.5deg); }
+}
+
+@keyframes kr-flower-sway-rev-kf {
+  0%, 100% { transform: rotate(2.5deg); }
+  50% { transform: rotate(-2.5deg); }
+}
+
+.kr-flower-sway {
+  animation: kr-flower-sway-kf 5s ease-in-out infinite;
+  transform-origin: 0 30px;
+  transform-box: fill-box;
+}
+
+.kr-flower-sway-rev {
+  animation: kr-flower-sway-rev-kf 5.5s ease-in-out infinite;
+  transform-origin: 0 30px;
+  transform-box: fill-box;
+}
+
+/* Taeguk xoay chậm */
+@keyframes kr-taeguk-rotate-kf {
+  from { transform: translate(325px, 90px) rotate(0deg); }
+  to { transform: translate(325px, 90px) rotate(360deg); }
+}
+
+.kr-taeguk-rotate {
+  animation: kr-taeguk-rotate-kf 30s linear infinite;
+  transform-origin: 0 0;
+}
+
+@keyframes kr-star-twinkle-kf {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.15); }
+}
+
+.kr-star-twinkle {
+  animation: kr-star-twinkle-kf 3s ease-in-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+@keyframes kr-flag-float-kf {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-6px) rotate(2deg); }
+}
+
+.kr-flag-float {
+  animation: kr-flag-float-kf 5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kr-flower-sway,
+  .kr-flower-sway-rev,
+  .kr-taeguk-rotate,
+  .kr-star-twinkle,
+  .kr-flag-float {
+    animation: none !important;
+  }
+}
+
+/* ============================================================
+   MALAYSIA PAGE ANIMATIONS
+   ============================================================ */
+
+@keyframes my-flower-sway-kf {
+  0%, 100% { transform: rotate(-2.5deg); }
+  50% { transform: rotate(2.5deg); }
+}
+
+@keyframes my-flower-sway-rev-kf {
+  0%, 100% { transform: rotate(2.5deg); }
+  50% { transform: rotate(-2.5deg); }
+}
+
+.my-flower-sway {
+  animation: my-flower-sway-kf 5s ease-in-out infinite;
+  transform-origin: 0 30px;
+  transform-box: fill-box;
+}
+
+.my-flower-sway-rev {
+  animation: my-flower-sway-rev-kf 5.5s ease-in-out infinite;
+  transform-origin: 0 30px;
+  transform-box: fill-box;
+}
+
+/* Wau bulan — nhấp nhô như đang bay */
+@keyframes my-wau-float-kf {
+  0%, 100% { transform: translate(0, 0) rotate(-3deg); }
+  50% { transform: translate(0, -8px) rotate(3deg); }
+}
+
+.my-wau-float {
+  animation: my-wau-float-kf 4.5s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes my-star-twinkle-kf {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.15); }
+}
+
+.my-star-twinkle {
+  animation: my-star-twinkle-kf 3s ease-in-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+@keyframes my-flag-float-kf {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-6px) rotate(2deg); }
+}
+
+.my-flag-float {
+  animation: my-flag-float-kf 5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .my-flower-sway,
+  .my-flower-sway-rev,
+  .my-wau-float,
+  .my-star-twinkle,
+  .my-flag-float {
+    animation: none !important;
+  }
+}
+
+/* ============================================================
+   SINGAPORE PAGE ANIMATIONS
+   ============================================================ */
+
+@keyframes sg-orchid-sway-kf {
+  0%, 100% { transform: rotate(-2.5deg); }
+  50% { transform: rotate(2.5deg); }
+}
+
+@keyframes sg-orchid-sway-rev-kf {
+  0%, 100% { transform: rotate(2.5deg); }
+  50% { transform: rotate(-2.5deg); }
+}
+
+.sg-orchid-sway {
+  animation: sg-orchid-sway-kf 5s ease-in-out infinite;
+  transform-origin: 0 30px;
+  transform-box: fill-box;
+}
+
+.sg-orchid-sway-rev {
+  animation: sg-orchid-sway-rev-kf 5.5s ease-in-out infinite;
+  transform-origin: 0 30px;
+  transform-box: fill-box;
+}
+
+/* Merlion — nhún nhẹ như đang phun nước */
+@keyframes sg-merlion-breathe-kf {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+.sg-merlion-breathe {
+  animation: sg-merlion-breathe-kf 4s ease-in-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+/* Vòi phun nước — chảy liên tục */
+@keyframes sg-water-spout-kf {
+  0%, 100% { opacity: 0.7; transform: scaleY(1); }
+  50% { opacity: 0.9; transform: scaleY(1.06); }
+}
+
+.sg-water-spout {
+  animation: sg-water-spout-kf 2.5s ease-in-out infinite;
+  transform-origin: top center;
+  transform-box: fill-box;
+}
+
+@keyframes sg-star-twinkle-kf {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.15); }
+}
+
+.sg-star-twinkle {
+  animation: sg-star-twinkle-kf 3s ease-in-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+@keyframes sg-flag-float-kf {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-6px) rotate(2deg); }
+}
+
+.sg-flag-float {
+  animation: sg-flag-float-kf 5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sg-orchid-sway,
+  .sg-orchid-sway-rev,
+  .sg-merlion-breathe,
+  .sg-water-spout,
+  .sg-star-twinkle,
+  .sg-flag-float {
+    animation: none !important;
+  }
+}
+
+/* ============================================================
+   CAMBODIA PAGE ANIMATIONS
+   ============================================================ */
+
+@keyframes kh-flower-sway-kf {
+  0%, 100% { transform: rotate(-2.5deg); }
+  50% { transform: rotate(2.5deg); }
+}
+
+@keyframes kh-flower-sway-rev-kf {
+  0%, 100% { transform: rotate(2.5deg); }
+  50% { transform: rotate(-2.5deg); }
+}
+
+.kh-flower-sway {
+  animation: kh-flower-sway-kf 5s ease-in-out infinite;
+  transform-origin: 0 30px;
+  transform-box: fill-box;
+}
+
+.kh-flower-sway-rev {
+  animation: kh-flower-sway-rev-kf 5.5s ease-in-out infinite;
+  transform-origin: 0 30px;
+  transform-box: fill-box;
+}
+
+/* Apsara dancer — nhún nhẹ như đang múa */
+@keyframes kh-apsara-dance-kf {
+  0%, 100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-4px) rotate(2deg);
+  }
+}
+
+.kh-apsara-dance {
+  animation: kh-apsara-dance-kf 5s ease-in-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+@keyframes kh-star-twinkle-kf {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.15); }
+}
+
+.kh-star-twinkle {
+  animation: kh-star-twinkle-kf 3s ease-in-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+@keyframes kh-flag-float-kf {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-6px) rotate(2deg); }
+}
+
+.kh-flag-float {
+  animation: kh-flag-float-kf 5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kh-flower-sway,
+  .kh-flower-sway-rev,
+  .kh-apsara-dance,
+  .kh-star-twinkle,
+  .kh-flag-float {
+    animation: none !important;
+  }
+}
+
+/* ============================================================
+   PAKISTAN PAGE ANIMATIONS
+   ============================================================ */
+
+@keyframes pk-jasmine-sway-kf {
+  0%, 100% { transform: rotate(-2.5deg); }
+  50% { transform: rotate(2.5deg); }
+}
+
+@keyframes pk-jasmine-sway-rev-kf {
+  0%, 100% { transform: rotate(2.5deg); }
+  50% { transform: rotate(-2.5deg); }
+}
+
+.pk-jasmine-sway {
+  animation: pk-jasmine-sway-kf 5s ease-in-out infinite;
+  transform-origin: 0 30px;
+  transform-box: fill-box;
+}
+
+.pk-jasmine-sway-rev {
+  animation: pk-jasmine-sway-rev-kf 5.5s ease-in-out infinite;
+  transform-origin: 0 30px;
+  transform-box: fill-box;
+}
+
+/* Crescent moon glow nhẹ */
+@keyframes pk-moon-glow-kf {
+  0%, 100% { opacity: 0.85; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+.pk-moon-glow {
+  animation: pk-moon-glow-kf 4s ease-in-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+@keyframes pk-flag-float-kf {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-6px) rotate(2deg); }
+}
+
+.pk-flag-float {
+  animation: pk-flag-float-kf 5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pk-jasmine-sway,
+  .pk-jasmine-sway-rev,
+  .pk-moon-glow,
+  .pk-flag-float {
+    animation: none !important;
+  }
+}
+
+/* ============================================================
+   COUNTRY FLAG MARQUEE
+   ============================================================ */
+
+.country-flag-marquee {
+  position: relative;
+  overflow: hidden;
+  padding: 8px 0;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+}
+
+.country-flag-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: max-content;
+  animation: country-flag-scroll 60s linear infinite;
+}
+
+.country-flag-marquee:hover .country-flag-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes country-flag-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* Track có 2 bản sao danh sách → dịch đúng 50% để vòng lặp liền mạch */
+    transform: translateX(-50%);
+  }
+}
+
+.country-flag-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.country-flag-item:hover {
+  transform: translateY(-3px);
+}
+
+.country-flag-badge {
+  width: 56px;
+  height: 42px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  object-fit: cover;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.country-flag-name {
+  font-size: 10.5px;
+  font-weight: 500;
+  color: var(--text-muted);
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+}
+
+html[data-theme="light"] .country-flag-badge {
+  box-shadow:
+    0 4px 12px rgba(14, 26, 20, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .country-flag-marquee-track {
+    animation: none !important;
+  }
+}
+
+/* ============================================================
+   COUNTRY DROPDOWN — Navbar
+   ============================================================ */
+
+.country-dropdown {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  z-index: 50;
+  margin-top: 8px;
+  width: 640px;
+  max-width: calc(100vw - 32px);
+  transform: translateX(-50%);
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: rgba(11, 19, 17, 0.72);
+  backdrop-filter: blur(28px) saturate(160%);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
+  box-shadow:
+    0 24px 70px -20px rgba(0, 0, 0, 0.65),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+html[data-theme="light"] .country-dropdown {
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow:
+    0 24px 70px -20px rgba(14, 26, 20, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.country-dropdown-inner {
+  padding: 16px 18px 14px;
+  max-height: calc(100dvh - 120px);
+  overflow-y: auto;
+}
+
+/* Custom scrollbar */
+.country-dropdown-inner::-webkit-scrollbar {
+  width: 6px;
+}
+.country-dropdown-inner::-webkit-scrollbar-track {
+  background: transparent;
+}
+.country-dropdown-inner::-webkit-scrollbar-thumb {
+  background: rgba(233, 241, 236, 0.15);
+  border-radius: 3px;
+}
+.country-dropdown-inner::-webkit-scrollbar-thumb:hover {
+  background: rgba(233, 241, 236, 0.25);
+}
+
+.country-dropdown-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 2px 10px;
+}
+
+.country-dropdown-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px rgba(142, 214, 173, 0.18);
+}
+
+.country-dropdown-dot-muted {
+  background: var(--text-muted);
+  box-shadow: 0 0 0 3px rgba(144, 165, 154, 0.12);
+}
+
+.country-dropdown-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.country-dropdown-label-muted {
+  color: var(--text-muted);
+}
+
+.country-dropdown-count {
+  margin-left: auto;
+  font-size: 10.5px;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+.country-dropdown-count-muted {
+  opacity: 0.7;
+}
+
+/* Grid layout */
+.country-dropdown-grid {
+  display: grid;
+  gap: 4px;
+}
+
+.country-dropdown-grid-available {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.country-dropdown-grid-soon {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* Item */
+.country-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  transition:
+    background-color 0.18s ease,
+    transform 0.18s ease;
+  cursor: pointer;
+  min-width: 0;
+}
+
+a.country-dropdown-item:hover {
+  background: rgba(142, 214, 173, 0.08);
+  transform: translateX(2px);
+}
+
+html[data-theme="light"] a.country-dropdown-item:hover {
+  background: rgba(47, 111, 71, 0.08);
+}
+
+.country-dropdown-flag {
+  flex-shrink: 0;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  object-fit: cover;
+  display: block;
+}
+
+.country-dropdown-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.country-dropdown-item-soon {
+  cursor: not-allowed;
+  opacity: 0.42;
+  padding: 6px 10px;
+}
+
+.country-dropdown-name-soon {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.country-dropdown-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 14px 0 10px;
+}
+
+/* Responsive — dưới 800px chuyển 2 cột */
+@media (max-width: 800px) {
+  .country-dropdown {
+    width: calc(100vw - 24px);
+  }
+  .country-dropdown-grid-available {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .country-dropdown-grid-soon {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

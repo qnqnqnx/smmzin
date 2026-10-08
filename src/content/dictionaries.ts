@@ -92,6 +92,7 @@ const vi = {
     ] as NavItem[],
     openMenu: "Mở menu",
     closeMenu: "Đóng menu",
+    countriesLabel: "Quốc gia",
   },
 
   hero: {
@@ -160,6 +161,14 @@ const vi = {
     keywordsLabel: "Dịch vụ phổ biến",
     detailCta: "Xem dịch vụ",
     items: platformsVi as PlatformItem[],
+  },
+
+  countries: {
+    eyebrow: "PHỦ SÓNG TOÀN CẦU",
+    title: "SMMZin có mặt tại nhiều quốc gia.",
+    description:
+      "SMMZin hướng tới hỗ trợ creators, agency và thương hiệu trên toàn thế giới. Trang dành riêng cho từng quốc gia sẽ được ra mắt trong thời gian tới, với nội dung, ngôn ngữ và dịch vụ phù hợp với đặc điểm từng thị trường.",
+    note: "Danh sách đang được mở rộng. Bạn đến từ quốc gia khác? Hãy để lại email để nhận thông báo khi SMMZin có mặt tại khu vực của bạn.",
   },
 
   services: {
@@ -398,6 +407,7 @@ const en: Dictionary = {
     ] as NavItem[],
     openMenu: "Open menu",
     closeMenu: "Close menu",
+    countriesLabel: "Countries",
   },
 
   hero: {
@@ -466,6 +476,14 @@ const en: Dictionary = {
     keywordsLabel: "Popular services",
     detailCta: "View Services",
     items: platformsEn as PlatformItem[],
+  },
+
+  countries: {
+    eyebrow: "GLOBAL REACH",
+    title: "SMMZin is available in multiple countries.",
+    description:
+      "SMMZin is built to support creators, agencies and brands worldwide. Dedicated country pages will launch soon, with content, language and services tailored to each market.",
+    note: "The list keeps growing. Not from these countries? Leave your email to be notified when SMMZin is available in your region.",
   },
 
   services: {

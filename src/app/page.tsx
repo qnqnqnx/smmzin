@@ -1,13 +1,12 @@
-import { notFound } from "next/navigation";
 import { getDictionary, type FaqItem } from "@/content/dictionaries";
 import { SITE_CONFIG } from "@/content/site.config";
 import { getRemainingMs } from "@/lib/countdown";
-import { isLocale, locales, type Locale } from "@/lib/i18n";
 
 import ApiPreview from "@/components/ApiPreview";
 import About from "@/components/About";
 import Audience from "@/components/Audience";
 import Benefits from "@/components/Benefits";
+import Countries from "@/components/Countries";
 import Faq from "@/components/Faq";
 import Features from "@/components/Features";
 import FinalCta from "@/components/FinalCta";
@@ -22,16 +21,12 @@ import PlatformMarquee from "@/components/PlatformMarquee";
 import ProductPreview from "@/components/ProductPreview";
 import Services from "@/components/Services";
 
-export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
-}
+const locale = "en" as const;
+const dict = getDictionary(locale);
 
-export default function HomePage({ params }: { params: { locale: string } }) {
-  if (!isLocale(params.locale)) notFound();
-  const locale: Locale = params.locale;
-  const dict = getDictionary(locale);
-  const pageUrl = `${SITE_CONFIG.siteUrl}/${locale}`;
-  const inLanguage = locale === "vi" ? "vi-VN" : "en";
+export default function HomePage() {
+  const pageUrl = SITE_CONFIG.siteUrl;
+  const inLanguage = "en";
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -90,10 +85,12 @@ export default function HomePage({ params }: { params: { locale: string } }) {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
 
       <Navbar
-        locale={locale}
         brand={SITE_CONFIG.brandName}
         items={dict.nav.items}
         notifyLabel={dict.common.notifyMe}
@@ -102,7 +99,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
         themeLabelLight={dict.theme.toggleToLight}
         openMenuLabel={dict.nav.openMenu}
         closeMenuLabel={dict.nav.closeMenu}
-        languageLabel={dict.common.languageLabel}
+        countriesLabel={dict.nav.countriesLabel}
       />
 
       <main>
@@ -117,6 +114,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
         <ProductPreview dict={dict} />
         <ApiPreview dict={dict} />
         <Audience dict={dict} />
+        <Countries dict={dict} locale={locale} />
         <Philosophy dict={dict} />
         <Faq dict={dict} />
         <NotifyMe dict={dict} locale={locale} />

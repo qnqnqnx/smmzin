@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "python scripts/validate-countries.py && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "validate:countries": "python scripts/validate-countries.py"
   },
   "dependencies": {
     "next": "14.2.5",

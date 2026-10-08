@@ -14,8 +14,6 @@ export default function Footer({ dict, locale }: { dict: Dictionary; locale: str
     { key: "x", href: SITE_CONFIG.socialLinks.x, Icon: XMark, label: "X" },
   ];
 
-  const otherLocale = locale === "vi" ? "en" : "vi";
-
   return (
     <footer className="relative mt-8 border-t border-[color:var(--border)] pt-14">
       <div className="shell">
@@ -74,13 +72,7 @@ export default function Footer({ dict, locale }: { dict: Dictionary; locale: str
           </p>
 
           <div className="flex items-center gap-4">
-            <Link
-              href={`/${otherLocale}`}
-              className="text-[12.5px] text-[color:var(--text-muted)] transition-colors hover:text-[color:var(--text)]"
-            >
-              {otherLocale === "vi" ? "Tiếng Việt" : "English"}
-            </Link>
-            <span className="text-[12.5px] text-[color:var(--text-muted)] opacity-50">
+            <span className="text-[12.5px] text-[color:var(--text-muted)] opacity-70">
               {SITE_CONFIG.contact.email}
             </span>
           </div>
