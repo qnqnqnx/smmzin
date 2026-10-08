@@ -3,28 +3,13 @@ import type { Metadata } from "next";
 
 import CountryPage from "@/components/country/CountryPage";
 import { getCountryData, getCountryVisual } from "@/content/countries/registry";
+import { buildCountryMetadata } from "@/content/countries/metadata";
 
 const SLUG = "bangladesh";
 const data = getCountryData(SLUG);
 const visual = getCountryVisual(SLUG);
 
-export const metadata: Metadata = data
-  ? {
-      title: data.seo.title,
-      description: data.seo.description,
-      keywords: [...data.seo.keywords],
-      alternates: {
-        canonical: `https://www.smmzin.com/smm-panel-${SLUG}`,
-      },
-      openGraph: {
-        type: "website",
-        locale: data.seo.ogLocale,
-        url: `https://www.smmzin.com/smm-panel-${SLUG}`,
-        title: data.seo.title,
-        description: data.seo.description,
-      },
-    }
-  : {};
+export const metadata: Metadata = data ? buildCountryMetadata(data) : {};
 
 export default function BangladeshPage() {
   if (!data || !visual) notFound();

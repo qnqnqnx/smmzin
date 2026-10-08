@@ -11,8 +11,11 @@ export const vietnamData: CountryData = {
   tagEn: "SMM Panel Vietnam",
 
   seo: {
-    title: "SMM Panel Việt Nam — SMMZin | Giá rẻ, uy tín, hỗ trợ 24/7",
+    title: "SMM Panel Vietnam — SMMZin | Affordable, trusted, 24/7 support",
     description:
+      "SMMZin is a modern SMM Panel for Vietnamese creators and agencies. Grow Facebook, Instagram, TikTok, YouTube, Telegram, X, Threads and Spotify with likes, followers and views.",
+    nativeTitle: "SMM Panel Việt Nam — SMMZin | Giá rẻ, uy tín, hỗ trợ 24/7",
+    nativeDescription:
       "SMMZin là SMM Panel Việt Nam giúp creators, agency và thương hiệu tăng trưởng mạng xã hội: Facebook, Instagram, TikTok, YouTube, Telegram, X, Threads, Spotify. Giá rẻ, uy tín, hỗ trợ 24/7.",
     keywords: [
       "SMM Panel Việt Nam",

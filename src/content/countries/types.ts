@@ -50,8 +50,21 @@ export type CountryData = {
 
   // ----- SEO metadata -----
   seo: {
+    /**
+     * Fallback title/description (thường là tiếng Anh).
+     * Dùng khi không có nativeTitle/nativeDescription.
+     */
     title: string;
     description: string;
+
+    /**
+     * Title/description ở ngôn ngữ bản địa của trang.
+     * VD: Vietnam page dùng tiếng Việt, China page dùng tiếng Trung.
+     * Nếu không set → fallback về `title`/`description` (EN).
+     */
+    nativeTitle?: string;
+    nativeDescription?: string;
+
     keywords: string[];
     htmlLang: string;     // "vi" | "zh-CN" | "en"
     ogLocale: string;     // "vi_VN" | "zh_CN" | "en_US"

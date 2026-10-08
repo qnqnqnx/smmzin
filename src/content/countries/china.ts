@@ -11,8 +11,11 @@ export const chinaData: CountryData = {
   tagEn: "SMM Panel China",
 
   seo: {
-    title: "SMM Panel 中国 — SMMZin | 价格实惠、稳定可靠、24/7 支持",
+    title: "SMM Panel China — SMMZin | Affordable, reliable, 24/7 support",
     description:
+      "SMMZin is a modern SMM Panel for Chinese creators and agencies. Grow TikTok, Instagram, Facebook, YouTube, Telegram and X with followers, likes and views.",
+    nativeTitle: "SMM Panel 中国 — SMMZin | 价格实惠、稳定可靠、24/7 支持",
+    nativeDescription:
       "SMMZin 是面向中国创作者、代理商和品牌的 SMM Panel 平台。支持 TikTok、抖音、Instagram、Facebook、YouTube、Telegram、X 等平台涨粉、点赞和互动。价格实惠，24/7 中文客服。",
     keywords: [
       "SMM Panel 中国",
