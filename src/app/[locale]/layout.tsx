@@ -70,7 +70,7 @@ export async function generateMetadata({ params }: { params: { locale: string } 
       card: "summary_large_image",
       title: dict.meta.title,
       description: dict.meta.description,
-      images: [SITE_CONFIG.ogImage],
+      images: [`${url}/api/og?locale=${locale}`],
     },
   };
 }

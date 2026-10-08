@@ -11,7 +11,6 @@ export default function HowItWorks({ dict }: { dict: Dictionary }) {
             eyebrow={dict.how.eyebrow}
             title={dict.how.title}
             description={dict.how.description}
-            maxWidth="max-w-[620px]"
           />
         </Reveal>
 

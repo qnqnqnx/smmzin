@@ -15,7 +15,6 @@ export default function Audience({ dict }: { dict: Dictionary }) {
             eyebrow={dict.audience.eyebrow}
             title={dict.audience.title}
             description={dict.audience.description}
-            maxWidth="max-w-[680px]"
           />
         </Reveal>
 

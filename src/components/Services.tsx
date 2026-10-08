@@ -13,7 +13,6 @@ export default function Services({ dict }: { dict: Dictionary }) {
             eyebrow={dict.services.eyebrow}
             title={dict.services.title}
             description={dict.services.description}
-            maxWidth="max-w-[720px]"
           />
         </Reveal>
 

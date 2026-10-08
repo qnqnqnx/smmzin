@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OG Preview — SMMZin</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, system-ui, sans-serif;
+      background: #0a0e0d;
+      color: #e9f1ec;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+    .container { max-width: 1300px; margin: 0 auto; }
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .sub {
+      color: #90a59a;
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+    .info {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 24px 0 40px;
+      padding: 16px 20px;
+      background: rgba(142,214,173,0.05);
+      border: 1px solid rgba(142,214,173,0.2);
+      border-radius: 12px;
+      font-size: 14px;
+      color: #90a59a;
+    }
+    .info b { color: #8ed6ad; font-weight: 600; }
+    h2 {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin: 32px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(233,241,236,0.1);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(233,241,236,0.08);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: all 0.25s ease;
+    }
+    .card:hover {
+      border-color: rgba(142,214,173,0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px -20px rgba(142,214,173,0.3);
+    }
+    .card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1200/630;
+      background: #05090a;
+    }
+    .card-body {
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      border-top: 1px solid rgba(233,241,236,0.06);
+    }
+    .card-label {
+      font-family: ui-monospace, monospace;
+      font-size: 12px;
+      color: #8ed6ad;
+      font-weight: 500;
+    }
+    .card-open {
+      font-size: 11px;
+      color: #90a59a;
+      text-decoration: none;
+      padding: 4px 10px;
+      border: 1px solid rgba(233,241,236,0.1);
+      border-radius: 6px;
+      transition: all 0.15s;
+    }
+    .card-open:hover {
+      color: #e9f1ec;
+      border-color: rgba(142,214,173,0.4);
+    }
+    .legend {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      color: #90a59a;
+      margin-top: 20px;
+    }
+    .legend span::before {
+      content: "●";
+      margin-right: 6px;
+      color: #8ed6ad;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>OG Image Preview — SMMZin</h1>
+    <p class="sub">Xem tất cả 8 theme × 8 hook. Ảnh load trực tiếp từ API production.</p>
+
+    <div class="info">
+      <div>Host: <b id="host">—</b></div>
+      <div>Theme hôm nay: <b id="today-theme">—</b></div>
+      <div>Hook hôm nay: <b id="today-hook">—</b></div>
+    </div>
+
+    <h2>Theme — Tiếng Việt</h2>
+    <div class="grid" id="themes-vi"></div>
+
+    <h2>Theme — English</h2>
+    <div class="grid" id="themes-en"></div>
+
+    <h2>Hook xoay vòng — Tiếng Việt</h2>
+    <div class="grid" id="hooks-vi"></div>
+
+    <h2>Hook xoay vòng — English</h2>
+    <div class="grid" id="hooks-en"></div>
+
+    <div class="legend">
+      <span>4 theme tối (glow, stripes, mesh, spotlight)</span>
+      <span>4 theme sáng (lightMinimal, lightSplit, lightWave, lightDots)</span>
+    </div>
+  </div>
+
+  <script>
+    const THEMES = ["glow", "stripes", "mesh", "spotlight", "lightMinimal", "lightSplit", "lightWave", "lightDots"];
+    const HOOKS = [
+      "Giá rẻ — chất lượng",
+      "Uy tín hàng đầu",
+      "Xử lý siêu nhanh",
+      "Hỗ trợ nhiệt tình",
+      "Đa nền tảng",
+      "Một dashboard duy nhất",
+      "Cho creators & agency",
+      "Sẵn sàng API",
+    ];
+
+    const host = window.location.origin;
+    document.getElementById("host").textContent = host;
+
+    // Daily calc giống server
+    const day = Math.floor(Date.now() / 86400000);
+    const todayTheme = THEMES[day % 8];
+    const todayHook = HOOKS[(day + 3) % 8];
+    document.getElementById("today-theme").textContent = todayTheme;
+    document.getElementById("today-hook").textContent = todayHook;
+
+    function buildCard({ src, label, href }) {
+      return `
+        <div class="card">
+          <img src="${src}" alt="${label}" loading="lazy" />
+          <div class="card-body">
+            <span class="card-label">${label}</span>
+            <a class="card-open" href="${href}" target="_blank">Mở ↗</a>
+          </div>
+        </div>
+      `;
+    }
+
+    // Themes VI
+    document.getElementById("themes-vi").innerHTML = THEMES.map(t =>
+      buildCard({
+        src: `/api/og?locale=vi&theme=${t}`,
+        label: `vi · ${t}`,
+        href: `/api/og?locale=vi&theme=${t}`,
+      })
+    ).join("");
+
+    // Themes EN
+    document.getElementById("themes-en").innerHTML = THEMES.map(t =>
+      buildCard({
+        src: `/api/og?locale=en&theme=${t}`,
+        label: `en · ${t}`,
+        href: `/api/og?locale=en&theme=${t}`,
+      })
+    ).join("");
+
+    // Hooks VI
+    document.getElementById("hooks-vi").innerHTML = HOOKS.map((h, i) =>
+      buildCard({
+        src: `/api/og?locale=vi&hook=${i}`,
+        label: `hook ${i}: ${h}`,
+        href: `/api/og?locale=vi&hook=${i}`,
+      })
+    ).join("");
+
+    // Hooks EN
+    document.getElementById("hooks-en").innerHTML = HOOKS.map((h, i) =>
+      buildCard({
+        src: `/api/og?locale=en&hook=${i}`,
+        label: `hook ${i}`,
+        href: `/api/og?locale=en&hook=${i}`,
+      })
+    ).join("");
+  </script>
+</body>
+</html>

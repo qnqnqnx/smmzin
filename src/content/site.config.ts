@@ -11,7 +11,7 @@ export const SITE_CONFIG = {
 
   defaultLocale: "vi" as const,
   locales: ["vi", "en"] as const,
-  ogImage: "/og-image.svg",
+  ogImage: "/api/og",
   themeColor: "#05090a",
 
   // ----------------------------------------------------------

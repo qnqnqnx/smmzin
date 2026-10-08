@@ -12,7 +12,6 @@ export default function ApiPreview({ dict }: { dict: Dictionary }) {
             eyebrow={dict.api.eyebrow}
             title={dict.api.title}
             description={dict.api.description}
-            maxWidth="max-w-[560px]"
           />
 
           <ul className="mt-7 space-y-3">

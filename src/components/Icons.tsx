@@ -276,3 +276,122 @@ export function SpotifyMark({ size = 22, ...rest }: BrandProps) {
     </svg>
   );
 }
+
+export function LinkedInMark({ size = 22, ...rest }: BrandProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true" {...rest}>
+      <rect x="3" y="3" width="18" height="18" rx="3.5" stroke="currentColor" strokeWidth={1.8} />
+      <path d="M7.5 10.5v6" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" />
+      <circle cx="7.5" cy="7.7" r="1" fill="currentColor" />
+      <path
+        d="M11 16.5v-3.4c0-1.2.8-2.1 2-2.1s2 .9 2 2.1v3.4"
+        stroke="currentColor"
+        strokeWidth={1.8}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path d="M11 10.5v6" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function PinterestMark({ size = 22, ...rest }: BrandProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true" {...rest}>
+      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth={1.8} />
+      <path
+        d="M10 20c.3-2 1-4.5 1.5-6.5"
+        stroke="currentColor"
+        strokeWidth={1.8}
+        strokeLinecap="round"
+      />
+      <path
+        d="M11.5 13.5c0-2 1.3-3.5 3-3.5s2.7 1.2 2.7 2.9c0 2.1-1.5 3.7-3.4 3.7-.9 0-1.7-.4-2.1-1"
+        stroke="currentColor"
+        strokeWidth={1.8}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function SnapchatMark({ size = 22, ...rest }: BrandProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true" {...rest}>
+      <path
+        d="M12 3.5c-2.4 0-4.3 1.9-4.3 4.3v3.2c0 .5-.3.9-.8 1.1l-1.6.6c-.4.2-.6.6-.4 1 .2.4.7.6 1.2.7.6.1 1 .4 1.2.9.2.5.5 1 1.1 1.4-.3.7-.9 1.2-1.6 1.5-.4.2-.5.7-.2 1 .9.6 2 .8 3 .5.5.5 1.3 1 2.4 1s1.9-.5 2.4-1c1 .3 2.1.1 3-.5.3-.3.2-.8-.2-1-.7-.3-1.3-.8-1.6-1.5.6-.4.9-.9 1.1-1.4.2-.5.6-.8 1.2-.9.5-.1 1-.3 1.2-.7.2-.4 0-.8-.4-1l-1.6-.6c-.5-.2-.8-.6-.8-1.1V7.8c0-2.4-1.9-4.3-4.3-4.3Z"
+        stroke="currentColor"
+        strokeWidth={1.7}
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function RedditMark({ size = 22, ...rest }: BrandProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true" {...rest}>
+      <ellipse cx="12" cy="13" rx="8.5" ry="6" stroke="currentColor" strokeWidth={1.7} />
+      <circle cx="9.5" cy="12.5" r="1.1" fill="currentColor" />
+      <circle cx="14.5" cy="12.5" r="1.1" fill="currentColor" />
+      <path
+        d="M9.5 16c.8.7 1.7 1 2.5 1s1.7-.3 2.5-1"
+        stroke="currentColor"
+        strokeWidth={1.7}
+        strokeLinecap="round"
+      />
+      <path d="M18 9.5l2.5-2" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" />
+      <circle cx="21" cy="7" r="1.3" fill="currentColor" />
+      <path d="M12 6.5 13 3.5" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" />
+      <circle cx="13.5" cy="3" r="1" fill="currentColor" />
+    </svg>
+  );
+}
+
+export function DiscordMark({ size = 22, ...rest }: BrandProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true" {...rest}>
+      <path
+        d="M7.5 6.5A10.5 10.5 0 0 1 12 6c1.6 0 3.1.2 4.5.5l1 2c1 .3 1.8.8 2.4 1.3-.2 3.3-1.2 6-2.8 8.1-.8.2-1.7.4-2.6.4l-.6-1.2c-.6.1-1.3.1-1.9.1s-1.3 0-1.9-.1l-.6 1.2c-.9 0-1.8-.2-2.6-.4-1.6-2.1-2.6-4.8-2.8-8.1.6-.5 1.4-1 2.4-1.3l1-2Z"
+        stroke="currentColor"
+        strokeWidth={1.7}
+        strokeLinejoin="round"
+      />
+      <circle cx="9.5" cy="12.5" r="1.2" fill="currentColor" />
+      <circle cx="14.5" cy="12.5" r="1.2" fill="currentColor" />
+    </svg>
+  );
+}
+
+export function TwitchMark({ size = 22, ...rest }: BrandProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true" {...rest}>
+      <path
+        d="M4 3 5.5 4.5v13.5h3v3l3-3h3l4.5-4.5V4.5H6L4 3Z"
+        stroke="currentColor"
+        strokeWidth={1.7}
+        strokeLinejoin="round"
+      />
+      <path d="M10 8.5v4" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" />
+      <path d="M14.5 8.5v4" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function SoundCloudMark({ size = 22, ...rest }: BrandProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true" {...rest}>
+      <path d="M3.5 16v-3" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" />
+      <path d="M6.5 16v-5" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" />
+      <path d="M9.5 16V8.5" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" />
+      <path d="M12.5 16V7" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" />
+      <path
+        d="M15.5 16v-7c.6-.3 1.3-.5 2-.5 2.2 0 4 1.7 4 3.8s-1.8 3.7-4 3.7h-2Z"
+        stroke="currentColor"
+        strokeWidth={1.7}
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}

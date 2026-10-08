@@ -15,7 +15,6 @@ export default function Features({ dict }: { dict: Dictionary }) {
             eyebrow={dict.features.eyebrow}
             title={dict.features.title}
             description={dict.features.description}
-            maxWidth="max-w-[700px]"
           />
         </Reveal>
 

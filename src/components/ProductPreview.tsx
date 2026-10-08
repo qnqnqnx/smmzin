@@ -13,7 +13,6 @@ export default function ProductPreview({ dict }: { dict: Dictionary }) {
             eyebrow={dict.preview.eyebrow}
             title={dict.preview.title}
             description={dict.preview.description}
-            maxWidth="max-w-[700px]"
           />
         </Reveal>
 

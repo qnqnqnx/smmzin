@@ -68,20 +68,24 @@ export default function Navbar({
           : "border-transparent bg-transparent",
       ].join(" ")}
     >
-      <nav className="shell flex h-full items-center justify-between gap-3" aria-label="Primary">
+      <nav className="shell flex h-full items-center justify-between gap-2" aria-label="Primary">
         {/* -------- Left: logo -------- */}
-        <Link href={`/${locale}`} className="flex shrink-0 items-center gap-2.5 rounded-full" aria-label={brand}>
+        <Link
+          href={`/${locale}`}
+          className="flex shrink-0 items-center gap-2 rounded-full"
+          aria-label={brand}
+        >
           <LogoMark />
           <BrandName />
         </Link>
 
         {/* -------- Center: nav links (desktop only) -------- */}
-        <ul className="hidden items-center gap-0.5 lg:flex">
+        <ul className="hidden items-center lg:flex">
           {items.map((item) => (
             <li key={item.href}>
               <a
                 href={item.href}
-                className="nav-link rounded-full px-3.5 py-2 text-[13.5px] text-[color:var(--text-muted)] transition-colors hover:text-[color:var(--text)]"
+                className="nav-link whitespace-nowrap rounded-full px-3 py-2 text-[13px] text-[color:var(--text-muted)] transition-colors hover:text-[color:var(--text)]"
               >
                 {item.label}
               </a>
@@ -90,55 +94,78 @@ export default function Navbar({
         </ul>
 
         {/* -------- Right: actions -------- */}
-        <div className="flex shrink-0 items-center gap-2">
-          {/* Language switch — shown from 640px up */}
+        <div className="flex shrink-0 items-center gap-1.5">
+          {/* Language switch — hiện từ 640px */}
           <div className="hidden sm:block">
             <Link
               href={switchHref}
               aria-label={languageLabel}
-              className="inline-flex items-center gap-1 rounded-full border border-[color:var(--border)] px-3 py-1.5 text-[12px] font-medium tracking-wide transition-colors hover:border-[color:var(--border-strong)]"
+              className="inline-flex items-center gap-1 whitespace-nowrap rounded-full border border-[color:var(--border)] px-2.5 py-1.5 text-[11.5px] font-medium tracking-wide transition-colors hover:border-[color:var(--border-strong)]"
             >
-              <span className={locale === "vi" ? "text-[color:var(--text)]" : "text-[color:var(--text-muted)]"}>VI</span>
+              <span className={locale === "vi" ? "text-[color:var(--text)]" : "text-[color:var(--text-muted)]"}>
+                VI
+              </span>
               <span className="text-[color:var(--text-muted)] opacity-40">/</span>
-              <span className={locale === "en" ? "text-[color:var(--text)]" : "text-[color:var(--text-muted)]"}>EN</span>
+              <span className={locale === "en" ? "text-[color:var(--text)]" : "text-[color:var(--text-muted)]"}>
+                EN
+              </span>
             </Link>
           </div>
 
-          {/* Theme toggle — always visible */}
+          {/* Theme toggle — luôn hiện */}
           <ThemeToggle labelDark={themeLabelDark} labelLight={themeLabelLight} />
 
-          {/* Try Demo — shown from 768px up */}
+          {/* Try Demo — icon only (1024–1280px) */}
           {hasDemo && (
-            <div className="hidden md:block">
+            <div className="hidden lg:block xl:hidden">
               <a
                 href={SITE_CONFIG.demoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-ghost !h-9 !px-4 text-[13px]"
+                aria-label={demoLabel}
+                title={demoLabel}
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[color:var(--border)] text-[color:var(--text-muted)] transition-colors hover:border-[color:var(--border-strong)] hover:text-[color:var(--text)]"
               >
-                {demoLabel}
                 <ArrowUpRight size={14} />
               </a>
             </div>
           )}
 
-          {/* Notify Me — shown from 640px up */}
+          {/* Try Demo — có chữ (từ 1280px) */}
+          {hasDemo && (
+            <div className="hidden xl:block">
+              <a
+                href={SITE_CONFIG.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-ghost !h-9 whitespace-nowrap !px-3.5 text-[12.5px]"
+              >
+                {demoLabel}
+                <ArrowUpRight size={13} />
+              </a>
+            </div>
+          )}
+
+          {/* Notify Me — hiện từ 640px */}
           <div className="hidden sm:block">
-            <a href="#notify" className="btn btn-primary !h-9 !px-4 text-[13px]">
+            <a
+              href="#notify"
+              className="btn btn-primary !h-9 whitespace-nowrap !px-3.5 text-[12.5px]"
+            >
               {notifyLabel}
             </a>
           </div>
 
-          {/* Hamburger — shown below 1024px */}
+          {/* Hamburger — hiện dưới 1024px */}
           <button
             type="button"
             onClick={() => setOpen((value) => !value)}
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? closeMenuLabel : openMenuLabel}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[color:var(--border)] text-[color:var(--text)] transition-colors hover:bg-white/[0.05] lg:hidden"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[color:var(--border)] text-[color:var(--text)] transition-colors hover:bg-white/[0.05] lg:hidden"
           >
-            {open ? <Close size={19} /> : <Menu size={19} />}
+            {open ? <Close size={18} /> : <Menu size={18} />}
           </button>
         </div>
       </nav>

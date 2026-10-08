@@ -12,7 +12,6 @@ export default function Faq({ dict }: { dict: Dictionary }) {
             eyebrow={dict.faq.eyebrow}
             title={dict.faq.title}
             description={dict.faq.description}
-            maxWidth="max-w-[640px]"
           />
         </Reveal>
 

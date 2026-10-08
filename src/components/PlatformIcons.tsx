@@ -8,6 +8,13 @@ import {
   XMark,
   ThreadsMark,
   SpotifyMark,
+  LinkedInMark,
+  PinterestMark,
+  SnapchatMark,
+  RedditMark,
+  DiscordMark,
+  TwitchMark,
+  SoundCloudMark,
 } from "./Icons";
 
 const MAP = {
@@ -19,6 +26,13 @@ const MAP = {
   x: XMark,
   threads: ThreadsMark,
   spotify: SpotifyMark,
+  linkedin: LinkedInMark,
+  pinterest: PinterestMark,
+  snapchat: SnapchatMark,
+  reddit: RedditMark,
+  discord: DiscordMark,
+  twitch: TwitchMark,
+  soundcloud: SoundCloudMark,
 } as const;
 
 export function PlatformIcon({

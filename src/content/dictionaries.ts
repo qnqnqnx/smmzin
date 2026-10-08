@@ -1,5 +1,6 @@
 import type { Locale } from "@/lib/i18n";
 import type { PlatformItem } from "./platforms";
+import { platformsVi, platformsEn } from "./platforms-data";
 
 export type FeatureItem = { title: string; description: string };
 export type StepItem = { number: string; title: string; description: string };
@@ -11,70 +12,60 @@ export type FooterColumn = { title: string; links: { label: string; href: string
 export type LegalSection = { heading: string; body: string };
 
 const vi = {
-meta: {
-  title: "SMMZin — SMM Panel & Nền tảng Social Media Marketing thế hệ mới",
-  description:
-    "SMMZin là SMM Panel thế hệ mới giúp creators, agency, reseller và thương hiệu quản lý tăng trưởng mạng xã hội. Hỗ trợ Facebook, Instagram, TikTok, YouTube, Telegram, X, Threads, Spotify. Sắp ra mắt.",
-  keywords: [
-    // Core
-    "SMMZin",
-    "SMM Panel",
-    "SMM Panel Việt Nam",
-    "SMM Panel giá rẻ",
-    "SMM Panel uy tín",
-    "panel SMM",
-    "hệ thống SMM Panel",
-    "nền tảng SMM Panel",
-    "SMM Panel cho Agency",
-    "SMM Panel cho Reseller",
-    "API SMM đại lý",
-    // Tăng like
-    "tăng like Facebook",
-    "tăng like TikTok",
-    "tăng like Instagram",
-    "mua like Facebook",
-    "buff like",
-    // Tăng follow
-    "tăng follow Facebook",
-    "tăng follow TikTok",
-    "tăng follow Instagram",
-    "mua follow",
-    "buff follow",
-    // Tăng view
-    "tăng view TikTok",
-    "tăng view YouTube",
-    "buff view TikTok",
-    "mua view TikTok",
-    // Tăng sub
-    "tăng sub YouTube",
-    "mua sub YouTube",
-    "buff sub",
-    // Tăng mắt live
-    "tăng mắt livestream TikTok",
-    "buff mắt live TikTok",
-    "tăng mắt live",
-    // Tương tác & Seeding
-    "tăng tương tác mạng xã hội",
-    "dịch vụ tăng tương tác",
-    "dịch vụ seeding",
-    "seeding mạng xã hội",
-    // Telegram
-    "mua thành viên Telegram",
-    "tăng member Telegram",
-    "buff Telegram",
-    // Informational
-    "SMM Panel là gì",
-    "buff là gì",
-    "buff like là gì",
-    "buff follow là gì",
-    "buff view là gì",
-    // Trust
-    "dịch vụ tăng like uy tín",
-    "tăng like giá rẻ",
-    "tăng follow không tụt",
-    "buff like không tụt",
-  ],
-},
+  meta: {
+    title: "SMMZin — SMM Panel & Nền tảng Social Media Marketing thế hệ mới",
+    description:
+      "SMMZin là SMM Panel thế hệ mới giúp creators, agency, reseller và thương hiệu quản lý tăng trưởng mạng xã hội. Hỗ trợ Facebook, Instagram, TikTok, YouTube, Telegram, X, Threads, Spotify. Sắp ra mắt.",
+    keywords: [
+      "SMMZin",
+      "SMM Panel",
+      "SMM Panel Việt Nam",
+      "SMM Panel giá rẻ",
+      "SMM Panel uy tín",
+      "panel SMM",
+      "hệ thống SMM Panel",
+      "nền tảng SMM Panel",
+      "SMM Panel cho Agency",
+      "SMM Panel cho Reseller",
+      "API SMM đại lý",
+      "tăng like Facebook",
+      "tăng like TikTok",
+      "tăng like Instagram",
+      "mua like Facebook",
+      "buff like",
+      "tăng follow Facebook",
+      "tăng follow TikTok",
+      "tăng follow Instagram",
+      "mua follow",
+      "buff follow",
+      "tăng view TikTok",
+      "tăng view YouTube",
+      "buff view TikTok",
+      "mua view TikTok",
+      "tăng sub YouTube",
+      "mua sub YouTube",
+      "buff sub",
+      "tăng mắt livestream TikTok",
+      "buff mắt live TikTok",
+      "tăng mắt live",
+      "tăng tương tác mạng xã hội",
+      "dịch vụ tăng tương tác",
+      "dịch vụ seeding",
+      "seeding mạng xã hội",
+      "mua thành viên Telegram",
+      "tăng member Telegram",
+      "buff Telegram",
+      "SMM Panel là gì",
+      "buff là gì",
+      "buff like là gì",
+      "buff follow là gì",
+      "buff view là gì",
+      "dịch vụ tăng like uy tín",
+      "tăng like giá rẻ",
+      "tăng follow không tụt",
+      "buff like không tụt",
+    ],
+  },
 
   common: {
     comingSoon: "SẮP RA MẮT",
@@ -166,16 +157,9 @@ meta: {
     description:
       "SMMZin hướng tới hỗ trợ những nền tảng mạng xã hội phổ biến nhất, với danh mục dịch vụ rõ ràng cho từng nền tảng.",
     servicesLabel: "Nhóm dịch vụ",
-    items: [
-      { key: "facebook", name: "Facebook", description: "Hỗ trợ tăng trưởng cho trang, hồ sơ và nội dung.", services: ["Followers", "Likes", "Views", "Engagement"] },
-      { key: "instagram", name: "Instagram", description: "Hỗ trợ tăng trưởng cho hồ sơ, bài đăng và reels.", services: ["Followers", "Likes", "Views", "Engagement"] },
-      { key: "tiktok", name: "TikTok", description: "Hỗ trợ tăng trưởng cho kênh và nội dung video ngắn.", services: ["Followers", "Likes", "Views", "Engagement"] },
-      { key: "youtube", name: "YouTube", description: "Hỗ trợ tăng trưởng cho kênh và nội dung video dài.", services: ["Subscribers", "Views", "Likes"] },
-      { key: "telegram", name: "Telegram", description: "Hỗ trợ tăng trưởng cho kênh và nhóm cộng đồng.", services: ["Members", "Views", "Reactions"] },
-      { key: "x", name: "X", description: "Hỗ trợ tăng trưởng cho hồ sơ và bài đăng.", services: ["Followers", "Likes", "Views"] },
-      { key: "threads", name: "Threads", description: "Hỗ trợ tăng trưởng cho hồ sơ và nội dung văn bản.", services: ["Followers", "Likes", "Views"] },
-      { key: "spotify", name: "Spotify", description: "Hỗ trợ tăng trưởng cho nghệ sĩ, playlist và nội dung âm thanh.", services: ["Plays", "Followers", "Playlist"] },
-    ] as PlatformItem[],
+    keywordsLabel: "Dịch vụ phổ biến",
+    detailCta: "Xem dịch vụ",
+    items: platformsVi as PlatformItem[],
   },
 
   services: {
@@ -267,7 +251,7 @@ meta: {
       { q: "SMMZin dành cho ai?", a: "SMMZin dành cho creators, agency, reseller, thương hiệu và doanh nghiệp đang cần quản lý tăng trưởng mạng xã hội." },
       { q: "SMMZin có hỗ trợ tích hợp API không?", a: "Có. API nằm trong định hướng phát triển của SMMZin cho developer, agency và reseller. Endpoint cụ thể sẽ được công bố khi ra mắt." },
       { q: "Khi nào SMMZin ra mắt?", a: "SMMZin hiện đang trong giai đoạn hoàn thiện sản phẩm. Hãy để lại email để nhận thông báo ngay khi chúng tôi ra mắt." },
-      { q: "Làm sao để nhận thông tin ra mắt?", a: "Bạn có thể để lại email ở phần \"Nhận thông báo\" trên trang này. Chúng tôi chỉ liên hệ khi có thông tin về ngày ra mắt." },
+      { q: "Làm sao để nhận thông tin ra mắt?", a: "Bạn có thể để lại email ở phần Nhận thông báo trên trang này. Chúng tôi chỉ liên hệ khi có thông tin về ngày ra mắt." },
     ] as FaqItem[],
   },
 
@@ -339,66 +323,53 @@ meta: {
   },
 };
 
-export type Dictionary = typeof vi;
-
 const en: Dictionary = {
-meta: {
-  title: "SMMZin — Next Generation SMM Panel & Social Media Marketing Platform",
-  description:
-    "SMMZin is a next-generation SMM panel for creators, agencies, resellers and brands. Manage social media growth across Facebook, Instagram, TikTok, YouTube, Telegram, X, Threads and Spotify. Launching soon.",
-  keywords: [
-    // Core
-    "SMMZin",
-    "SMM panel",
-    "SMM panel 2026",
-    "best SMM panel",
-    "best SMM panel 2026",
-    "cheapest SMM panel",
-    "cheap SMM panel",
-    "affordable SMM panel",
-    "social media marketing panel",
-    "SMM panel Vietnam",
-    "best SMM panel in Vietnam",
-    // Reseller / Agency
-    "SMM panel for resellers",
-    "SMM reseller panel",
-    "best SMM panel for resellers",
-    "white label SMM panel",
-    "SMM panel for agencies",
-    "SMM panel API integration",
-    "SMM panel with API",
-    "SMM panel with PayPal",
-    "SMM panel instant delivery",
-    "wholesale social media services",
-    // Service-specific
-    "buy Instagram followers",
-    "buy Instagram likes",
-    "buy TikTok followers",
-    "buy TikTok views",
-    "buy YouTube views",
-    "buy YouTube subscribers",
-    "buy Facebook page likes",
-    "buy Facebook followers",
-    "buy Twitter followers",
-    "buy Spotify plays",
-    "buy Telegram members",
-    // Trust
-    "SMM panel reviews",
-    "trusted SMM panel",
-    "legit SMM panel",
-    "real SMM panel",
-    "non-drop SMM panel",
-    "SMM panel vs agency",
-    // Long-tail
-    "best SMM panel for Instagram",
-    "cheapest SMM panel for YouTube views",
-    "SMM panel for TikTok followers",
-    "SMM panel for small business",
-    "how to start an SMM panel business",
-    "what is an SMM panel",
-    "how does an SMM panel work",
-  ],
-},
+  meta: {
+    title: "SMMZin — Next Generation SMM Panel & Social Media Marketing Platform",
+    description:
+      "SMMZin is a next-generation SMM panel for creators, agencies, resellers and brands. Manage social media growth across Facebook, Instagram, TikTok, YouTube, Telegram, X, Threads and Spotify. Launching soon.",
+    keywords: [
+      "SMMZin",
+      "SMM panel",
+      "SMM panel 2026",
+      "best SMM panel",
+      "best SMM panel 2026",
+      "cheapest SMM panel",
+      "cheap SMM panel",
+      "affordable SMM panel",
+      "social media marketing panel",
+      "SMM panel Vietnam",
+      "SMM panel for resellers",
+      "SMM reseller panel",
+      "best SMM panel for resellers",
+      "white label SMM panel",
+      "SMM panel for agencies",
+      "SMM panel API integration",
+      "SMM panel with API",
+      "SMM panel instant delivery",
+      "wholesale social media services",
+      "buy Instagram followers",
+      "buy Instagram likes",
+      "buy TikTok followers",
+      "buy TikTok views",
+      "buy YouTube views",
+      "buy YouTube subscribers",
+      "buy Facebook page likes",
+      "buy Facebook followers",
+      "buy Twitter followers",
+      "buy Spotify plays",
+      "buy Telegram members",
+      "SMM panel reviews",
+      "trusted SMM panel",
+      "legit SMM panel",
+      "real SMM panel",
+      "non-drop SMM panel",
+      "best SMM panel for Instagram",
+      "best SMM panel for TikTok",
+      "what is an SMM panel",
+      "how does an SMM panel work",
+    ],
+  },
 
   common: {
     comingSoon: "COMING SOON",
@@ -467,7 +438,7 @@ meta: {
       { title: "Smart Automation", description: "Reduce repetitive tasks with automated workflows." },
       { title: "Real-time Control", description: "Track activity and order status more efficiently." },
       { title: "Built To Scale", description: "Designed for creators, agencies and growing businesses." },
-    ],
+    ] as FeatureItem[],
   },
 
   features: {
@@ -481,7 +452,7 @@ meta: {
       { title: "Real-time Tracking", description: "See status, progress and activity history instantly." },
       { title: "Developer API", description: "A planned API layer for developers, agencies and resellers." },
       { title: "Reseller Ready", description: "Structured for resale models and growing service businesses." },
-    ],
+    ] as FeatureItem[],
   },
 
   platforms: {
@@ -490,16 +461,9 @@ meta: {
     description:
       "SMMZin is being built to support the most widely used social platforms, with clear service categories for each.",
     servicesLabel: "Service categories",
-    items: [
-      { key: "facebook", name: "Facebook", description: "Support for page, profile and content growth.", services: ["Followers", "Likes", "Views", "Engagement"] },
-      { key: "instagram", name: "Instagram", description: "Support for profile, post and reels growth.", services: ["Followers", "Likes", "Views", "Engagement"] },
-      { key: "tiktok", name: "TikTok", description: "Support for channel and short-form video growth.", services: ["Followers", "Likes", "Views", "Engagement"] },
-      { key: "youtube", name: "YouTube", description: "Support for channel and long-form video growth.", services: ["Subscribers", "Views", "Likes"] },
-      { key: "telegram", name: "Telegram", description: "Support for channel and community group growth.", services: ["Members", "Views", "Reactions"] },
-      { key: "x", name: "X", description: "Support for profile and post growth.", services: ["Followers", "Likes", "Views"] },
-      { key: "threads", name: "Threads", description: "Support for profile and text content growth.", services: ["Followers", "Likes", "Views"] },
-      { key: "spotify", name: "Spotify", description: "Support for artists, playlists and audio content.", services: ["Plays", "Followers", "Playlist"] },
-    ],
+    keywordsLabel: "Popular services",
+    detailCta: "View Services",
+    items: platformsEn as PlatformItem[],
   },
 
   services: {
@@ -513,7 +477,7 @@ meta: {
       { title: "Followers", description: "Grow audiences and members across networks.", items: ["Followers", "Subscribers", "Members"] },
       { title: "Engagement", description: "Increase interaction on posts and content.", items: ["Likes", "Views", "Comments", "Reactions", "Shares"] },
       { title: "Growth", description: "Support overall channel and brand growth.", items: ["Audience growth", "Engagement growth", "Social visibility"] },
-    ],
+    ] as ServiceGroup[],
   },
 
   how: {
@@ -525,7 +489,7 @@ meta: {
       { number: "02", title: "Choose", description: "Pick the platform and service category that fits your goal." },
       { number: "03", title: "Manage", description: "Track progress, status and history in one place." },
       { number: "04", title: "Scale", description: "Expand as demand and client volume grow." },
-    ],
+    ] as StepItem[],
   },
 
   preview: {
@@ -569,7 +533,7 @@ meta: {
       { title: "Agencies", description: "For agencies handling multiple clients at once." },
       { title: "Resellers", description: "For businesses building their own social media services." },
       { title: "Brands", description: "For businesses managing social presence and growth." },
-    ],
+    ] as AudienceItem[],
   },
 
   philosophy: {
@@ -592,7 +556,7 @@ meta: {
       { q: "Will SMMZin support API integration?", a: "Yes. API integration is part of the SMMZin roadmap for developers, agencies and resellers. Specific endpoints will be published at launch." },
       { q: "When will SMMZin launch?", a: "SMMZin is currently in development. Leave your email and we will let you know as soon as we launch." },
       { q: "How can I receive launch updates?", a: "Use the Notify Me form on this page. We only reach out with launch-related information." },
-    ],
+    ] as FaqItem[],
   },
 
   notify: {
@@ -635,7 +599,7 @@ meta: {
         { label: "Privacy", href: "/privacy" },
         { label: "Terms", href: "/terms" },
       ]},
-    ],
+    ] as FooterColumn[],
     rights: "All rights reserved.",
   },
 
@@ -649,7 +613,7 @@ meta: {
         { heading: "Information we collect", body: "At this stage, SMMZin only collects the email address you voluntarily provide through the Notify Me form." },
         { heading: "How we use it", body: "Your email is used solely to notify you when SMMZin launches. We do not sell or share this data with third parties for advertising." },
         { heading: "Storage and removal", body: "You can request removal of your email at any time by contacting us at the address listed in the footer." },
-      ],
+      ] as LegalSection[],
     },
     terms: {
       title: "Terms of Use",
@@ -658,7 +622,7 @@ meta: {
         { heading: "Nature of this website", body: "This website is a product introduction page for software in development. Some content, including interface and API previews, is illustrative only." },
         { heading: "No guaranteed results", body: "SMMZin makes no guarantee of specific results. The outcome of any service depends on the platform, the content and how it is used." },
         { heading: "Changes", body: "We may change the content, features and terms on this website at any time without prior notice." },
-      ],
+      ] as LegalSection[],
     },
   },
 };

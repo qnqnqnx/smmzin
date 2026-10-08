@@ -69,8 +69,8 @@
 
 .glass {
   background: var(--surface-glass);
-  -webkit-backdrop-filter: blur(18px) saturate(150%);
-  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  backdrop-filter: blur(12px) saturate(140%);
   border: 1px solid var(--border);
 }
 
@@ -167,8 +167,8 @@
     radial-gradient(circle at 72% 78%, rgba(79, 125, 94, 0.55), transparent 58%),
     linear-gradient(155deg, rgba(22, 42, 32, 0.95), rgba(6, 11, 10, 0.98));
   border: 1px solid rgba(233, 241, 236, 0.12);
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,0.16),
     inset 0 -30px 60px -30px rgba(0,0,0,0.9),
@@ -265,8 +265,8 @@ html[data-theme="light"] .card {
 
 html[data-theme="light"] .glass {
   background: var(--surface-glass);
-  -webkit-backdrop-filter: blur(18px) saturate(150%);
-  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  backdrop-filter: blur(12px) saturate(140%);
 }
 
 html[data-theme="light"] .btn-primary {
@@ -710,3 +710,672 @@ html[data-theme="light"] .brand-name .brand-accent {
   text-shadow: none;
   color: var(--accent);
 }
+
+/* ============================================================
+   PLATFORM EXPLORER — Tabs + Detail Panel
+   ============================================================ */
+
+/* ----- Tab bar (scroll ngang trên mobile) ----- */
+.platform-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 18px 8px 6px;
+  margin: 0 -8px;
+}
+
+.platform-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 38px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.025);
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.2s ease,
+    box-shadow 0.25s ease;
+}
+
+.platform-tab:hover {
+  border-color: var(--border-strong);
+  color: var(--text);
+}
+
+.platform-tab.is-active {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--tab-accent, var(--accent));
+  color: var(--text);
+  box-shadow: 0 0 0 1px var(--tab-accent, var(--accent)) inset;
+}
+
+.platform-tab:focus-visible {
+  outline: 2px solid var(--tab-accent, var(--accent));
+  outline-offset: 2px;
+}
+
+html[data-theme="light"] .platform-tab {
+  background: rgba(14, 26, 20, 0.03);
+}
+html[data-theme="light"] .platform-tab.is-active {
+  background: rgba(14, 26, 20, 0.06);
+}
+
+/* ----- Panel (detail) ----- */
+.platform-panel {
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0%, rgba(255, 255, 255, 0.008) 100%);
+  padding: 24px;
+  animation: platform-panel-in 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@media (min-width: 640px) {
+  .platform-panel {
+    padding: 32px;
+  }
+}
+@media (min-width: 1024px) {
+  .platform-panel {
+    padding: 40px;
+  }
+}
+
+@keyframes platform-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+html[data-theme="light"] .platform-panel {
+  background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.5) 100%);
+  box-shadow: 0 1px 3px rgba(14, 26, 20, 0.04);
+}
+
+/* ----- Visual (bên trái) ----- */
+.platform-visual {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  max-width: 340px;
+  margin-inline: auto;
+  border-radius: 22px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.platform-visual-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+}
+
+.platform-visual-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 96px;
+  border-radius: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    0 20px 60px -20px rgba(0, 0, 0, 0.5);
+}
+
+html[data-theme="light"] .platform-visual-icon {
+  background: rgba(255, 255, 255, 0.65);
+  border-color: rgba(14, 26, 20, 0.1);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 20px 60px -25px rgba(14, 26, 20, 0.2);
+}
+
+.platform-visual-name {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+/* Vòng xoay quanh visual */
+.platform-visual-ring {
+  position: absolute;
+  inset: 12%;
+  border-radius: 50%;
+  border: 1px dashed rgba(233, 241, 236, 0.08);
+  pointer-events: none;
+  animation: smmzin-rotate 60s linear infinite;
+}
+.platform-visual-ring-2 {
+  inset: 22%;
+  border-style: solid;
+  border-color: rgba(233, 241, 236, 0.05);
+  animation-duration: 90s;
+  animation-direction: reverse;
+}
+html[data-theme="light"] .platform-visual-ring {
+  border-color: rgba(14, 26, 20, 0.08);
+}
+html[data-theme="light"] .platform-visual-ring-2 {
+  border-color: rgba(14, 26, 20, 0.05);
+}
+
+/* Chấm sáng nhỏ trên vòng ngoài */
+.platform-visual::before {
+  content: "";
+  position: absolute;
+  inset: 8%;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at 85% 20%,
+    color-mix(in srgb, var(--visual-accent, var(--accent)) 60%, transparent),
+    transparent 8%
+  );
+  opacity: 0.7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .platform-visual-ring,
+  .platform-visual-ring-2,
+  .platform-panel {
+    animation: none !important;
+  }
+}
+
+/* ============================================================
+   PLATFORM EXPLORER — Hiệu ứng theo màu thương hiệu
+   ============================================================ */
+
+/* ----- Tab hover: glow theo màu accent của platform ----- */
+.platform-tab {
+  position: relative;
+  overflow: hidden;
+}
+.platform-tab::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    60px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    color-mix(in srgb, var(--tab-accent, var(--accent)) 22%, transparent),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+.platform-tab:hover::before {
+  opacity: 1;
+}
+
+.platform-tab:hover {
+  border-color: color-mix(in srgb, var(--tab-accent, var(--accent)) 45%, var(--border));
+}
+
+.platform-tab.is-active {
+  box-shadow:
+    0 0 0 1px var(--tab-accent, var(--accent)) inset,
+    0 0 20px -6px color-mix(in srgb, var(--tab-accent, var(--accent)) 60%, transparent);
+  transform: translateY(-1px);
+}
+.platform-tab.is-active:hover {
+  transform: translateY(-1px);
+}
+
+/* Icon bên trong tab sáng lên khi hover/active */
+.platform-tab > svg {
+  transition: color 0.25s ease, filter 0.25s ease;
+}
+.platform-tab:hover > svg {
+  color: color-mix(in srgb, var(--tab-accent, var(--accent)) 80%, var(--text));
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--tab-accent, var(--accent)) 50%, transparent));
+}
+.platform-tab.is-active > svg {
+  color: var(--tab-accent, var(--accent));
+  filter: drop-shadow(0 0 8px color-mix(in srgb, var(--tab-accent, var(--accent)) 55%, transparent));
+}
+
+/* ----- Panel: đường viền accent phía trên ----- */
+.platform-panel {
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* Ánh sáng nền theo màu platform */
+.platform-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      color-mix(in srgb, var(--panel-accent) 22%, transparent) 50%,
+      transparent 100%
+    ),
+    radial-gradient(
+      560px circle at var(--mx, 50%) var(--my, 50%),
+      color-mix(in srgb, var(--panel-accent) 14%, transparent),
+      transparent 55%
+    );
+  background-size: 200% 1px, 100% 100%;
+  background-repeat: no-repeat, no-repeat;
+  background-position:
+    -200% 0,
+    0 0;
+  pointer-events: none;
+  opacity: 0.9;
+  animation: panel-scanline 6s ease-in-out infinite;
+}
+
+@keyframes panel-scanline {
+  0% {
+    background-position:
+      -200% 0,
+      0 0;
+  }
+  50% {
+    background-position:
+      200% 0,
+      0 0;
+  }
+  100% {
+    background-position:
+      -200% 0,
+      0 0;
+  }
+}
+
+html[data-theme="light"] .platform-panel::after {
+  opacity: 0.4;
+}
+
+/* ----- Visual box: hiệu ứng hover ----- */
+.platform-visual {
+  transition:
+    border-color 0.4s ease,
+    box-shadow 0.4s ease,
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.platform-visual:hover {
+  border-color: color-mix(in srgb, var(--visual-accent, var(--accent)) 40%, var(--border));
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--visual-accent, var(--accent)) 25%, transparent) inset,
+    0 24px 60px -30px color-mix(in srgb, var(--visual-accent, var(--accent)) 55%, transparent);
+  transform: translateY(-3px);
+}
+
+/* Icon bên trong visual: pulse + glow */
+.platform-visual-icon {
+  transition:
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.5s ease,
+    border-color 0.5s ease;
+}
+
+.platform-visual:hover .platform-visual-icon {
+  transform: scale(1.06);
+  border-color: color-mix(in srgb, var(--visual-accent, var(--accent)) 50%, transparent);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    0 0 0 6px color-mix(in srgb, var(--visual-accent, var(--accent)) 8%, transparent),
+    0 20px 60px -20px color-mix(in srgb, var(--visual-accent, var(--accent)) 60%, transparent);
+}
+
+/* Vòng ngoài sáng lên nhẹ khi hover visual */
+.platform-visual:hover .platform-visual-ring {
+  border-color: color-mix(in srgb, var(--visual-accent, var(--accent)) 25%, transparent);
+  transition: border-color 0.5s ease;
+}
+
+/* Tên platform bên dưới icon đổi màu nhẹ */
+.platform-visual-name {
+  transition: color 0.3s ease;
+}
+.platform-visual:hover .platform-visual-name {
+  color: color-mix(in srgb, var(--visual-accent, var(--accent)) 70%, var(--text));
+}
+
+/* ----- Keyword check circles theo màu accent ----- */
+.platform-panel .keyword-check {
+  border-color: color-mix(in srgb, var(--accent) 60%, transparent);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+.platform-panel li:hover .keyword-check {
+  transform: scale(1.15);
+  border-color: var(--accent);
+}
+
+/* ----- Tắt animation khi user muốn giảm chuyển động ----- */
+@media (prefers-reduced-motion: reduce) {
+  .platform-tab,
+  .platform-tab::before,
+  .platform-tab > svg,
+  .platform-visual,
+  .platform-visual-icon,
+  .platform-visual-name,
+  .keyword-check {
+    transition: none !important;
+    transform: none !important;
+  }
+  .platform-tab.is-active {
+    transform: none !important;
+  }
+}
+
+
+/* ============================================================
+   PANEL OUTER GLOW — vòng sáng ngoài panel theo màu platform
+   ============================================================ */
+.platform-panel {
+  box-shadow:
+    0 0 80px -30px color-mix(in srgb, var(--panel-accent) 40%, transparent),
+    0 4px 24px -12px rgba(0, 0, 0, 0.35);
+  transition: box-shadow 0.6s ease;
+}
+
+.platform-panel:hover {
+  box-shadow:
+    0 0 120px -30px color-mix(in srgb, var(--panel-accent) 55%, transparent),
+    0 4px 24px -12px rgba(0, 0, 0, 0.45);
+}
+
+html[data-theme="light"] .platform-panel {
+  box-shadow:
+    0 0 80px -30px color-mix(in srgb, var(--panel-accent) 25%, transparent),
+    0 4px 24px -12px rgba(14, 26, 20, 0.06);
+}
+
+html[data-theme="light"] .platform-panel:hover {
+  box-shadow:
+    0 0 120px -30px color-mix(in srgb, var(--panel-accent) 40%, transparent),
+    0 4px 24px -12px rgba(14, 26, 20, 0.08);
+}
+
+/* Chấm sáng nhỏ chạy theo border — tăng độ "wow" */
+
+
+
+
+
+/* Đảm bảo nội dung panel nằm trên viền chạy */
+.platform-panel > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Panel khi active — luôn relative để ::before hiển thị đúng */
+.platform-panel {
+  position: relative;
+}
+
+
+/* ============================================================
+   PLATFORM PANEL — Rotating beam border (universal)
+   Dùng transform: rotate() — hoạt động trên MỌI trình duyệt
+   ============================================================ */
+
+.platform-panel {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  isolation: isolate;
+  box-shadow: none !important;
+}
+
+
+
+.platform-panel::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: 22px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%),
+    var(--bg-elev);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Nội dung nằm trên cả 2 lớp */
+.platform-panel > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Inner content wrapper — phải có padding vì panel không còn padding */
+.platform-panel > .platform-panel-inner {
+  padding: 24px;
+  border-radius: 22px;
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in srgb, var(--panel-accent, var(--accent)) 6%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--panel-accent, var(--accent)) 6%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 32px 32px;
+}
+
+@media (min-width: 640px) {
+  .platform-panel > .platform-panel-inner {
+    padding: 32px;
+  }
+}
+@media (min-width: 1024px) {
+  .platform-panel > .platform-panel-inner {
+    padding: 40px;
+  }
+}
+
+@keyframes panel-beam-spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Light theme */
+html[data-theme="light"] .platform-panel::after {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.6) 100%),
+    var(--bg-elev);
+}
+
+/* Giảm chuyển động */
+@media (prefers-reduced-motion: reduce) {
+  
+
+
+/* ============================================================
+   TYPOGRAPHY — Ngăn ngắt từ lạ + cân đối dòng
+   ============================================================ */
+.eyebrow {
+  white-space: nowrap;
+}
+
+/* Không ngắt từ giữa chừng, chỉ ngắt ở khoảng trắng */
+body {
+  word-break: normal;
+  overflow-wrap: break-word;
+  hyphens: none;
+}
+
+/* Mô tả section: cân dòng đẹp hơn */
+.section p {
+  text-wrap: pretty;
+}
+
+/* Tiêu đề section: balance để tránh dòng cuối lẻ loi */
+.section h2 {
+  text-wrap: balance;
+}
+
+
+.platform-panel::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  transform-origin: center;
+  transform: rotate(0deg);
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 315deg,
+    color-mix(in srgb, var(--panel-accent, var(--accent)) 40%, transparent) 335deg,
+    color-mix(in srgb, var(--panel-accent, var(--accent)) 90%, transparent) 350deg,
+    var(--panel-accent, var(--accent)) 355deg,
+    #ffffff 358deg,
+    var(--panel-accent, var(--accent)) 360deg,
+    transparent 360deg
+  );
+  animation: panel-beam-spin 3.5s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+}
+
+/* ============================================================
+   PERFORMANCE — Tối ưu render
+   ============================================================ */
+
+/* Section off-screen: bỏ render layout/paint cho tới khi gần tới viewport */
+.section {
+  content-visibility: auto;
+  contain-intrinsic-size: 800px;
+}
+
+/* Card hover: chỉ dùng transform + border-color (đã có GPU layer) */
+.card {
+  contain: layout style;
+}
+
+/* Panel beam: chỉ khi tab active mới chạy — JS sẽ toggle class này */
+.platform-panel:not([data-active="true"])::before {
+  animation-play-state: paused;
+}
+
+/* Vòng xoay hero: chỉ chạy khi page visible */
+@media (prefers-reduced-motion: reduce) {
+  .platform-panel::before {
+    animation: none !important;
+  }
+}
+
+/* Giảm tải drop-shadow mạnh */
+.orb {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    inset 0 -30px 60px -30px rgba(0, 0, 0, 0.9),
+    0 60px 140px -50px rgba(79, 125, 94, 0.6);
+}
+
+/* Marquee: pause khi không thấy */
+.marquee {
+  contain: strict;
+}
+
+}
+
+/* ============================================================
+   PLATFORM TABS — Mobile: horizontal scroll, Desktop: wrap
+   ============================================================ */
+
+/* ----- Mobile (<640px): scroll ngang ----- */
+@media (max-width: 639px) {
+  .platform-tabs {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 8px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 14px 20px 10px;
+    margin: 0 -20px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    scroll-behavior: smooth;
+  }
+
+  .platform-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .platform-tab {
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    height: 36px;
+    padding: 0 13px;
+    font-size: 12.5px;
+  }
+
+  /* Hiệu ứng mờ ở 2 mép để gợi ý có thể kéo */
+  .platform-tabs::before,
+  .platform-tabs::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 24px;
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  /* Wrapper cần position relative để ::before/::after neo đúng */
+  .platform-tabs {
+    position: relative;
+  }
+
+  /* Ẩn hiệu ứng spotlight chuột trên mobile (không có chuột) */
+  .platform-tab::before {
+    display: none;
+  }
+}
+
+/* ----- Desktop (≥640px): giữ nguyên wrap (đã có sẵn) ----- */

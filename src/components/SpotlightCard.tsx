@@ -1,6 +1,7 @@
 "use client";
 
-import { useRef, type ReactNode, type MouseEvent } from "react";
+import { useMemo, useRef, type ReactNode, type MouseEvent } from "react";
+import { rafThrottle } from "@/lib/throttle";
 
 /**
  * Card có hiệu ứng spotlight chạy theo con trỏ chuột.
@@ -24,21 +25,26 @@ export default function SpotlightCard({
 }) {
   const ref = useRef<HTMLElement>(null);
 
-  function handleMouseMove(event: MouseEvent<HTMLElement>) {
-    const element = ref.current;
-    if (!element) return;
-    const rect = element.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-    element.style.setProperty("--mouse-x", `${x}px`);
-    element.style.setProperty("--mouse-y", `${y}px`);
+  const handleMouseMove = useMemo(
+    () =>
+      rafThrottle((element: HTMLElement, clientX: number, clientY: number) => {
+        const rect = element.getBoundingClientRect();
+        element.style.setProperty("--mouse-x", `${clientX - rect.left}px`);
+        element.style.setProperty("--mouse-y", `${clientY - rect.top}px`);
+      }),
+    [],
+  );
+
+  function onMouseMove(event: MouseEvent<HTMLElement>) {
+    const target = event.currentTarget;
+    handleMouseMove(target, event.clientX, event.clientY);
   }
 
   return (
     <Tag
       // @ts-expect-error — ref type phụ thuộc vào Tag động
       ref={ref}
-      onMouseMove={handleMouseMove}
+      onMouseMove={onMouseMove}
       className={["card spotlight", lift ? "card-lift" : "", className].filter(Boolean).join(" ")}
     >
       {children}
