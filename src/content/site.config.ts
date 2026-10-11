@@ -7,7 +7,7 @@ export const SITE_CONFIG = {
   brandName: "SMMZin.Com",
 
   // Địa chỉ website thật của bạn (không có dấu / ở cuối)
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://app.smmzin.com",
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://smmzin.com",
 
   defaultLocale: "vi" as const,
   locales: ["vi", "en"] as const,
@@ -42,7 +42,7 @@ export const SITE_CONFIG = {
   // ----------------------------------------------------------
   contact: {
     email: "hello@smmzin.com",
-    telegram: "https://t.me/YOUR-TELEGRAM",
+    telegram: "https://t.me/+AWEP8ClL3oA1NWY1",
   },
 
   // ----------------------------------------------------------
@@ -51,7 +51,7 @@ export const SITE_CONFIG = {
   socialLinks: {
     facebook: "https://www.facebook.com/profile.php?id=61588850413247",
     instagram: "https://instagram.com/YOUR-PAGE",
-    telegram: "https://t.me/YOUR-CHANNEL",
+    telegram: "https://t.me/+AWEP8ClL3oA1NWY1",
     x: "https://x.com/YOUR-HANDLE",
   },
 
