@@ -7585,3 +7585,282 @@ html[data-theme="light"] a.fo-country:hover {
     padding: 0 12px;
   }
 }
+
+/* ============================================================
+   BACK TO TOP — Premium floating button
+   ============================================================ */
+
+.btt {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 45;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+  padding: 0;
+
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  background: rgba(11, 19, 17, 0.72);
+
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  backdrop-filter: blur(16px) saturate(160%);
+
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 12px 32px -10px rgba(0, 0, 0, 0.6),
+    0 4px 12px -4px rgba(0, 0, 0, 0.4);
+
+  cursor: pointer;
+  isolation: isolate;
+
+  /* Hidden state */
+  opacity: 0;
+  transform: translateY(16px) scale(0.9);
+  pointer-events: none;
+
+  transition:
+    opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+    border-color 0.3s ease,
+    box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.3s ease;
+}
+
+/* Visible state */
+.btt[data-visible="true"] {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* Hover */
+.btt:hover {
+  border-color: rgba(142, 214, 173, 0.55);
+  background: rgba(13, 22, 19, 0.85);
+  transform: translateY(-3px) scale(1.06);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.1) inset,
+    0 20px 44px -12px rgba(79, 125, 94, 0.6),
+    0 0 0 4px rgba(142, 214, 173, 0.08),
+    0 0 32px -6px rgba(142, 214, 173, 0.35);
+}
+
+/* Active */
+.btt:active {
+  transform: translateY(-1px) scale(1.02);
+  transition-duration: 0.1s;
+}
+
+/* Focus */
+.btt:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+/* ----- Scroll progress ring ----- */
+.btt-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  display: block;
+  filter: drop-shadow(0 0 4px rgba(142, 214, 173, 0.4));
+  z-index: 1;
+}
+
+.btt-ring-progress {
+  transition: stroke-dashoffset 0.15s linear;
+}
+
+/* ----- Arrow icon ----- */
+.btt-arrow {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  transition: color 0.3s ease;
+}
+
+.btt-arrow svg {
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btt:hover .btt-arrow {
+  color: var(--accent);
+}
+
+.btt:hover .btt-arrow svg {
+  transform: translateY(-2px);
+}
+
+/* ----- Tooltip ----- */
+.btt-tooltip {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%) translateX(6px);
+
+  display: inline-flex;
+  align-items: center;
+  height: 30px;
+  padding: 0 12px;
+
+  border-radius: 8px;
+  border: 1px solid var(--border-strong);
+  background: rgba(11, 19, 17, 0.9);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  white-space: nowrap;
+  pointer-events: none;
+
+  opacity: 0;
+  transition:
+    opacity 0.25s ease 0.1s,
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1) 0.1s;
+}
+
+.btt:hover .btt-tooltip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* Tooltip arrow */
+.btt-tooltip::after {
+  content: "";
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  background: rgba(11, 19, 17, 0.9);
+  border-right: 1px solid var(--border-strong);
+  border-top: 1px solid var(--border-strong);
+}
+
+/* ----- Idle pulse (nhẹ nhàng khi mới hiện) ----- */
+@keyframes btt-idle-pulse {
+  0%, 100% {
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.06) inset,
+      0 12px 32px -10px rgba(0, 0, 0, 0.6),
+      0 4px 12px -4px rgba(0, 0, 0, 0.4),
+      0 0 0 0 rgba(142, 214, 173, 0.4);
+  }
+  50% {
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.06) inset,
+      0 12px 32px -10px rgba(0, 0, 0, 0.6),
+      0 4px 12px -4px rgba(0, 0, 0, 0.4),
+      0 0 0 8px rgba(142, 214, 173, 0);
+  }
+}
+
+.btt[data-visible="true"]:not(:hover) {
+  animation: btt-idle-pulse 3s ease-in-out infinite 1.5s;
+}
+
+/* ----- Light theme ----- */
+html[data-theme="light"] .btt {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(14, 26, 20, 0.14);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.9) inset,
+    0 12px 32px -10px rgba(14, 26, 20, 0.18),
+    0 4px 12px -4px rgba(14, 26, 20, 0.08);
+}
+
+html[data-theme="light"] .btt:hover {
+  border-color: rgba(47, 111, 71, 0.5);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 1) inset,
+    0 20px 44px -12px rgba(47, 111, 71, 0.3),
+    0 0 0 4px rgba(47, 111, 71, 0.08),
+    0 0 32px -6px rgba(47, 111, 71, 0.22);
+}
+
+html[data-theme="light"] .btt-arrow {
+  color: var(--text);
+}
+
+html[data-theme="light"] .btt-ring circle:first-child {
+  stroke: rgba(14, 26, 20, 0.1);
+}
+
+html[data-theme="light"] .btt-tooltip {
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--text);
+}
+
+html[data-theme="light"] .btt-tooltip::after {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+/* ----- Mobile: nhỏ hơn + gần mép hơn ----- */
+@media (max-width: 640px) {
+  .btt {
+    right: 16px;
+    bottom: 16px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .btt-arrow svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* Ẩn tooltip trên mobile */
+  .btt-tooltip {
+    display: none;
+  }
+
+  /* Ring giữ đúng tâm trên mobile */
+  .btt-ring {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* ----- Reduced motion ----- */
+@media (prefers-reduced-motion: reduce) {
+  .btt,
+  .btt-ring-progress,
+  .btt-arrow svg,
+  .btt-tooltip {
+    animation: none !important;
+    transition: opacity 0.2s ease !important;
+  }
+
+  .btt {
+    transform: none !important;
+  }
+
+  .btt[data-visible="true"] {
+    opacity: 1;
+  }
+
+  .btt:hover {
+    transform: none !important;
+  }
+}
