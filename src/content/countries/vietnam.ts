@@ -18,6 +18,14 @@ export const vietnamData: CountryData = {
     nativeDescription:
       "SMMZin là SMM Panel Việt Nam giúp creators, agency và thương hiệu tăng trưởng mạng xã hội: Facebook, Instagram, TikTok, YouTube, Telegram, X, Threads, Spotify. Giá rẻ, uy tín, hỗ trợ 24/7.",
     keywords: [
+      "SMM Panel Vietnam",
+      "Vietnam SMM panel",
+      "buy Vietnamese TikTok followers",
+      "Vietnam Instagram growth",
+      "Vietnam Facebook likes",
+      "Vietnam YouTube subscribers",
+      "Vietnam SMM reseller",
+      "Vietnam social media marketing",
       "SMM Panel Việt Nam",
       "SMM Panel giá rẻ",
       "tăng like Facebook",

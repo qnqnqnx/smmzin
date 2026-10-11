@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SITE_CONFIG } from "@/content/site.config";
 import { listAllCountries } from "@/content/countries/registry";
+import { getAllSlugs } from "@/content/blog/registry";
 
 /**
  * Sitemap tự động từ registry.
@@ -35,14 +36,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
+  // Blog listing
+  entries.push({
+    url: `${base}/blog`,
+    lastModified: now,
+    changeFrequency: "weekly",
+    priority: 0.8,
+  });
+
+  // Blog posts — tự động
+  const allPostSlugs = getAllSlugs();
+  for (const slug of allPostSlugs) {
+    entries.push({
+      url: `${base}/blog/${slug}`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    });
+  }
+
   // Trang tĩnh
   entries.push(
-    {
-      url: `${base}/privacy`,
-      lastModified: now,
-      changeFrequency: "yearly",
-      priority: 0.3,
-    },
     {
       url: `${base}/terms`,
       lastModified: now,
@@ -50,6 +64,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.3,
     },
   );
+
+
+  // Privacy Policy — public-facing trust document
+  entries.push({
+    url: `${base}/legal/privacy`,
+    lastModified: now,
+    changeFrequency: "yearly",
+    priority: 0.4,
+  });
 
   return entries;
 }

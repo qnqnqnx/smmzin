@@ -1,12 +1,30 @@
 import Link from "next/link";
 import type { Dictionary } from "@/content/dictionaries";
 import { SITE_CONFIG } from "@/content/site.config";
+import { countriesList } from "@/content/countries-data";
+import { getCountryFlag } from "@/content/countries";
 import { resolveLink } from "@/lib/i18n";
-import { InstagramMark, FacebookMark, TelegramMark, XMark } from "./Icons";
+import {
+  FacebookMark,
+  InstagramMark,
+  TelegramMark,
+  XMark,
+  Mail,
+  ArrowUpRight,
+} from "./Icons";
 import { LogoMark } from "./Logo";
-import BrandName from "./BrandName";
 
-export default function Footer({ dict, locale }: { dict: Dictionary; locale: string }) {
+export default function Footer({
+  dict,
+  locale,
+}: {
+  dict: Dictionary;
+  locale: string;
+}) {
+  const year = new Date().getFullYear();
+  const otherLocale = locale === "vi" ? "en" : "vi";
+  const isVi = locale === "vi";
+
   const socials = [
     { key: "facebook", href: SITE_CONFIG.socialLinks.facebook, Icon: FacebookMark, label: "Facebook" },
     { key: "instagram", href: SITE_CONFIG.socialLinks.instagram, Icon: InstagramMark, label: "Instagram" },
@@ -14,20 +32,27 @@ export default function Footer({ dict, locale }: { dict: Dictionary; locale: str
     { key: "x", href: SITE_CONFIG.socialLinks.x, Icon: XMark, label: "X" },
   ];
 
-  return (
-    <footer className="relative mt-8 border-t border-[color:var(--border)] pt-14">
-      <div className="shell">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,2fr)]">
-          <div>
-            <div className="flex items-center gap-2.5">
-              <LogoMark />
-              <BrandName />
-            </div>
-            <p className="mt-4 max-w-[36ch] text-[14px] leading-relaxed text-[color:var(--text-muted)]">
-              {dict.footer.description}
-            </p>
+  const availableCount = countriesList.filter((c) => c.available).length;
 
-            <div className="mt-6 flex items-center gap-2">
+  return (
+    <footer className="fo">
+      {/* ============================================================
+          SECTION 1 — Brand Hero (full-width)
+          ============================================================ */}
+      <section className="fo-hero">
+        <div className="fo-hero-bg" aria-hidden="true" />
+        <div className="shell fo-hero-inner">
+          {/* Row 1: logo + socials */}
+          <div className="fo-hero-row">
+            <Link href="/" className="fo-hero-logo" aria-label={SITE_CONFIG.brandName}>
+              <LogoMark size={52} />
+              <span className="fo-hero-name">
+                SMM<span className="fo-hero-zin">Zin</span>
+                <span className="fo-hero-suffix">.Com</span>
+              </span>
+            </Link>
+
+            <div className="fo-hero-socials">
               {socials.map(({ key, href, Icon, label }) => (
                 <a
                   key={key}
@@ -35,49 +60,156 @@ export default function Footer({ dict, locale }: { dict: Dictionary; locale: str
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[color:var(--border)] text-[color:var(--text-muted)] transition-colors hover:border-[color:var(--border-strong)] hover:text-[color:var(--text)]"
+                  data-brand={key}
+                  className="fo-hero-social"
                 >
-                  <Icon size={16} />
+                  <Icon size={18} />
                 </a>
               ))}
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
-            {dict.footer.columns.map((column) => (
-              <div key={column.title}>
-                <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-[color:var(--text)]">
-                  {column.title}
-                </p>
-                <ul className="mt-4 space-y-2.5">
-                  {column.links.map((link) => (
-                    <li key={`${column.title}-${link.label}`}>
-                      <a
-                        href={resolveLink(locale as "vi" | "en", link.href)}
-                        className="text-[13.5px] text-[color:var(--text-muted)] transition-colors hover:text-[color:var(--text)]"
-                      >
-                        {link.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
+          {/* Row 2: description + contact cluster */}
+          <div className="fo-hero-row fo-hero-row-bottom">
+            <p className="fo-hero-desc">
+              {isVi
+                ? "Nền tảng Social Media Marketing thế hệ mới — nơi creators, agency và thương hiệu quản lý tăng trưởng mạng xã hội."
+                : "The next-generation social media marketing platform — where creators, agencies and brands manage social growth."}
+            </p>
+
+            <div className="fo-hero-cluster">
+              <a
+                href={`mailto:${SITE_CONFIG.contact.email}`}
+                className="fo-hero-email"
+              >
+                <Mail size={14} />
+                <span>{SITE_CONFIG.contact.email}</span>
+                <ArrowUpRight size={12} className="fo-hero-email-arrow" />
+              </a>
+
+              <div className="fo-hero-status">
+                <span className="fo-hero-status-dot" />
+                <span>{isVi ? "Hoạt động bình thường" : "All systems operational"}</span>
               </div>
-            ))}
+            </div>
           </div>
         </div>
+      </section>
 
-        <div className="mt-12 flex flex-col gap-4 border-t border-[color:var(--border)] py-7 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-[12.5px] text-[color:var(--text-muted)]">
-            © {new Date().getFullYear()} {SITE_CONFIG.brandName}. {dict.footer.rights}
-          </p>
+      {/* ============================================================
+          SECTION 2 — Links (4 cột đều)
+          ============================================================ */}
+      <section className="fo-links">
+        <div className="shell fo-links-grid">
+          {dict.footer.columns.map((column) => (
+            <nav key={column.title} className="fo-links-col">
+              <p className="fo-links-title">{column.title}</p>
+              <ul className="fo-links-list">
+                {column.links.map((link) => (
+                  <li key={`${column.title}-${link.label}`}>
+                    <a
+                      href={resolveLink(locale as "vi" | "en", link.href)}
+                      className="fo-links-link"
+                    >
+                      <span>{link.label}</span>
+                      <ArrowUpRight size={11} className="fo-links-arrow" />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          ))}
+        </div>
+      </section>
 
-          <div className="flex items-center gap-4">
-            <span className="text-[12.5px] text-[color:var(--text-muted)] opacity-70">
-              {SITE_CONFIG.contact.email}
+      {/* ============================================================
+          SECTION 3 — Countries
+          ============================================================ */}
+      <section className="fo-countries">
+        <div className="shell">
+          <div className="fo-countries-head">
+            <p className="fo-countries-title">
+              {isVi
+                ? "SMM PANEL TOÀN CẦU · THANH TOÁN NỘI ĐỊA"
+                : "GLOBAL SMM PANEL · LOCAL PAYMENTS"}
+            </p>
+            <span className="fo-countries-badge">
+              {availableCount} {isVi ? "quốc gia" : "countries"}
             </span>
           </div>
+
+          <div className="fo-countries-list">
+            {countriesList.map((country) => {
+              const name = isVi ? country.nameVi : country.nameEn;
+
+              if (country.available) {
+                return (
+                  <Link
+                    key={country.code}
+                    href={country.href}
+                    className="fo-country"
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={getCountryFlag(country.code, 80)}
+                      alt={name}
+                      width={16}
+                      height={12}
+                      loading="lazy"
+                      className="fo-country-flag"
+                    />
+                    <span>{name}</span>
+                  </Link>
+                );
+              }
+
+              return (
+                <div
+                  key={country.code}
+                  className="fo-country fo-country-soon"
+                  title={`${name} — ${isVi ? "sắp ra mắt" : "coming soon"}`}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={getCountryFlag(country.code, 80)}
+                    alt={name}
+                    width={16}
+                    height={12}
+                    loading="lazy"
+                    className="fo-country-flag"
+                  />
+                  <span>{name}</span>
+                </div>
+              );
+            })}
+          </div>
         </div>
-      </div>
+      </section>
+
+      {/* ============================================================
+          SECTION 4 — Bottom bar
+          ============================================================ */}
+      <section className="fo-bottom">
+        <div className="shell fo-bottom-inner">
+          <p className="fo-copy">
+            © {year} {SITE_CONFIG.brandName}. {dict.footer.rights}
+          </p>
+
+          <div className="fo-bottom-right">
+            <Link href="/legal" className="fo-bottom-link">
+              {isVi ? "Trung tâm pháp lý" : "Legal Center"}
+            </Link>
+            <span className="fo-bottom-sep" />
+            <Link
+              href={`/${otherLocale}`}
+              className="fo-bottom-link"
+              aria-label={dict.common.languageLabel}
+            >
+              {otherLocale === "vi" ? "Tiếng Việt" : "English"}
+            </Link>
+          </div>
+        </div>
+      </section>
     </footer>
   );
 }

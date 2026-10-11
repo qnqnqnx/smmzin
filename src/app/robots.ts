@@ -6,8 +6,16 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: "*",
-        allow: "/",
-        disallow: ["/_next/", "/api/", "/og-preview.html"],
+        allow: ["/", "/legal/privacy"],
+        disallow: [
+          "/_next/",
+          "/api/",
+          "/og-preview.html",
+          "/legal/terms",
+          "/legal/cookies",
+          "/legal/refund",
+          "/legal/disclaimer",
+        ],
       },
     ],
     sitemap: `${SITE_CONFIG.siteUrl}/sitemap.xml`,
