@@ -7062,8 +7062,8 @@ html[data-theme="light"] .fo-hero-bg::before {
   }
 
   .fo-links-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 20px;
   }
 }
 
