@@ -15,4 +15,3 @@ Bạn cần cài **Node.js** trước (tải tại https://nodejs.org — chọn
 Mở **Git Bash**, đi đến thư mục dự án:
 
 ```bash
-cd /d/SMMZin
