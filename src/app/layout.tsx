@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import BackToTop from "@/components/BackToTop";
 import { getDictionary } from "@/content/dictionaries";
 import { SITE_CONFIG } from "@/content/site.config";
@@ -100,6 +102,8 @@ export default function RootLayout({
         <div className="ambient" aria-hidden="true" />
         {children}
         <BackToTop label="Back to top" />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
