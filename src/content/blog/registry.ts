@@ -10,6 +10,8 @@ import { meta as ytMeta, Content as ytContent } from "./posts/youtube-monetizati
 import { meta as pricingMeta, Content as pricingContent } from "./posts/smm-panel-pricing-guide";
 import { meta as automationMeta, Content as automationContent } from "./posts/social-media-automation";
 import { meta as trendsMeta, Content as trendsContent } from "./posts/social-media-trends-2026";
+import { meta as choosePanelMeta, Content as choosePanelContent } from "./posts/how-to-choose-best-smm-panel";
+import { meta as safetyGuideMeta, Content as safetyGuideContent } from "./posts/smm-panel-safety-guide";
 
 /**
  * Registry của tất cả bài blog.
@@ -58,6 +60,14 @@ export const ALL_POSTS: BlogPost[] = [
   {
     ...trendsMeta,
     Content: trendsContent,
+  },
+  {
+    ...choosePanelMeta,
+    Content: choosePanelContent,
+  },
+  {
+    ...safetyGuideMeta,
+    Content: safetyGuideContent,
   },
 ];
 

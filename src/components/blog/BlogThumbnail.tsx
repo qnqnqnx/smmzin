@@ -432,6 +432,114 @@ function ThumbTrends() {
   );
 }
 
+// ---- 11. How to Choose the Best SMM Panel --------------------------
+function ThumbChooseBestPanel() {
+  return (
+    <Wrap bgFrom="#0c1a2a" bgTo="#05090a">
+      <defs>
+        <linearGradient id="check11" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#cdf0dd" />
+          <stop offset="100%" stopColor="#4f7d5e" />
+        </linearGradient>
+        <radialGradient id="glow11" cx="0.85" cy="0.2" r="0.5">
+          <stop offset="0%" stopColor="#8ed6ad" stopOpacity="0.3" />
+          <stop offset="100%" stopColor="#8ed6ad" stopOpacity="0" />
+        </radialGradient>
+      </defs>
+      <circle cx="320" cy="50" r="110" fill="url(#glow11)" />
+      {Array.from({ length: 12 }).map((_, i) => (
+        <line key={`v${i}`} x1={i * 34} y1={0} x2={i * 34} y2={250} stroke="white" strokeOpacity="0.03" />
+      ))}
+
+      {/* Clipboard */}
+      <g transform="translate(200 125)">
+        <rect x="-70" y="-90" width="140" height="180" rx="12" fill="#0a1211" stroke="#8ed6ad" strokeOpacity="0.35" strokeWidth="1.5" />
+        <rect x="-24" y="-100" width="48" height="18" rx="6" fill="#0a1211" stroke="#8ed6ad" strokeOpacity="0.5" strokeWidth="1.5" />
+
+        {/* Checklist rows */}
+        {[-55, -20, 15, 50].map((y, i) => (
+          <g key={y}>
+            {/* Checkbox */}
+            <circle cx="-45" cy={y} r="8" fill={i < 3 ? "url(#check11)" : "none"} stroke="#8ed6ad" strokeOpacity={i < 3 ? "1" : "0.4"} strokeWidth="1.5" />
+            {/* Checkmark inside */}
+            {i < 3 && (
+              <path d={`M ${-49} ${y} l 3 3 l 6 -6`} stroke="#05090a" strokeWidth="1.8" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+            )}
+            {/* Line */}
+            <rect x="-28" y={y - 2} width={60 - i * 8} height="3" rx="1.5" fill="#8ed6ad" opacity={0.25 + (3 - i) * 0.15} />
+          </g>
+        ))}
+
+        {/* Emphasis underline on first item */}
+        <rect x="-28" y="-58" width="50" height="1.5" rx="1" fill="url(#check11)" opacity="0.9" />
+      </g>
+    </Wrap>
+  );
+}
+
+// ---- 12. SMM Panel Safety Guide ------------------------------------
+function ThumbSafetyGuide() {
+  return (
+    <Wrap bgFrom="#1a0f0f" bgTo="#05090a">
+      <defs>
+        <linearGradient id="shield12" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#8ed6ad" />
+          <stop offset="100%" stopColor="#4f7d5e" />
+        </linearGradient>
+        <radialGradient id="glow12" cx="0.5" cy="0.5" r="0.6">
+          <stop offset="0%" stopColor="#8ed6ad" stopOpacity="0.22" />
+          <stop offset="100%" stopColor="#8ed6ad" stopOpacity="0" />
+        </radialGradient>
+        <radialGradient id="warn12" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0%" stopColor="#f4c77c" stopOpacity="0.2" />
+          <stop offset="100%" stopColor="#f4c77c" stopOpacity="0" />
+        </radialGradient>
+      </defs>
+
+      <circle cx="200" cy="125" r="120" fill="url(#glow12)" />
+      <circle cx="320" cy="60" r="80" fill="url(#warn12)" />
+
+      {/* Shield */}
+      <g transform="translate(200 125)">
+        <path
+          d="M 0 -85 L 65 -58 L 65 5 Q 65 55, 0 85 Q -65 55, -65 5 L -65 -58 Z"
+          fill="url(#shield12)"
+          fillOpacity="0.08"
+          stroke="url(#shield12)"
+          strokeOpacity="0.7"
+          strokeWidth="2.5"
+          strokeLinejoin="round"
+        />
+        {/* Inner shield line */}
+        <path
+          d="M 0 -72 L 52 -48 L 52 2 Q 52 46, 0 72 Q -52 46, -52 2 L -52 -48 Z"
+          fill="none"
+          stroke="url(#shield12)"
+          strokeOpacity="0.25"
+          strokeWidth="1"
+          strokeDasharray="3 5"
+          strokeLinejoin="round"
+        />
+
+        {/* Checkmark */}
+        <path
+          d="M -25 0 L -8 18 L 30 -22"
+          stroke="#cdf0dd"
+          strokeWidth="6"
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+
+        {/* Small warning dot top-right */}
+        <circle cx="55" cy="-55" r="14" fill="#0a1211" stroke="#f4c77c" strokeOpacity="0.7" strokeWidth="1.5" />
+        <path d="M 55 -63 L 55 -55" stroke="#f4c77c" strokeWidth="2" strokeLinecap="round" />
+        <circle cx="55" cy="-50" r="1.2" fill="#f4c77c" />
+      </g>
+    </Wrap>
+  );
+}
+
 // ------------------------------------------------------------
 const MAP: Record<string, () => React.ReactElement> = {
   "what-is-an-smm-panel": ThumbWhatIsSMM,
@@ -444,6 +552,8 @@ const MAP: Record<string, () => React.ReactElement> = {
   "smm-panel-pricing-guide": ThumbPricing,
   "social-media-automation": ThumbAutomation,
   "social-media-trends-2026": ThumbTrends,
+  "how-to-choose-best-smm-panel": ThumbChooseBestPanel,
+  "smm-panel-safety-guide": ThumbSafetyGuide,
 };
 
 export default function BlogThumbnail({ slug }: ThumbnailProps) {
