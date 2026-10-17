@@ -25,6 +25,9 @@ const baseUrl = SITE_CONFIG.siteUrl;
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
+  verification: {
+    google: "cm3EPV4_e1SlKS1mMWLXnVXTWGfMxNARSKD6r--Kdec",
+  },
   title: dict.meta.title,
   description: dict.meta.description,
   keywords: [...dict.meta.keywords],
