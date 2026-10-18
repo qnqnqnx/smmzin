@@ -293,6 +293,7 @@ const vi = {
         { label: "API", href: "#api" },
       ]},
       { title: "Tài nguyên", links: [
+        { label: "Blog", href: "/blog" },
         { label: "Hỏi đáp", href: "#faq" },
         { label: "Tài liệu", href: "#api" },
       ]},
@@ -610,6 +611,7 @@ const en: Dictionary = {
         { label: "API", href: "#api" },
       ]},
       { title: "Resources", links: [
+        { label: "Blog", href: "/blog" },
         { label: "FAQ", href: "#faq" },
         { label: "Documentation", href: "#api" },
       ]},
