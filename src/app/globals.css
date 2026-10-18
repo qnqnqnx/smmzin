@@ -7864,3 +7864,66 @@ html[data-theme="light"] .btt-tooltip::after {
     transform: none !important;
   }
 }
+
+/* ============================================================
+   MYANMAR PAGE ANIMATIONS
+   ============================================================ */
+
+@keyframes mm-padauk-sway-kf {
+  0%, 100% { transform: rotate(-2.5deg); }
+  50% { transform: rotate(2.5deg); }
+}
+
+@keyframes mm-padauk-sway-rev-kf {
+  0%, 100% { transform: rotate(2.5deg); }
+  50% { transform: rotate(-2.5deg); }
+}
+
+.mm-padauk-sway {
+  animation: mm-padauk-sway-kf 5s ease-in-out infinite;
+  transform-origin: 0 30px;
+  transform-box: fill-box;
+}
+
+.mm-padauk-sway-rev {
+  animation: mm-padauk-sway-rev-kf 5.5s ease-in-out infinite;
+  transform-origin: 0 30px;
+  transform-box: fill-box;
+}
+
+@keyframes mm-star-twinkle-kf {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.15); }
+}
+
+.mm-star-twinkle {
+  animation: mm-star-twinkle-kf 3s ease-in-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+.mm-star-twinkle-rev {
+  animation: mm-star-twinkle-kf 3.5s ease-in-out infinite;
+  animation-delay: 1s;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+@keyframes mm-flag-float-kf {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-6px) rotate(2deg); }
+}
+
+.mm-flag-float {
+  animation: mm-flag-float-kf 5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mm-padauk-sway,
+  .mm-padauk-sway-rev,
+  .mm-star-twinkle,
+  .mm-star-twinkle-rev,
+  .mm-flag-float {
+    animation: none !important;
+  }
+}
