@@ -19,3 +19,4 @@ yarn-error.log*
 *.tsbuildinfo
 
 # Build helper scripts (không cần cho web)
+*.sh
