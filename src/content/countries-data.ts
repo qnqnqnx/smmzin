@@ -95,13 +95,13 @@ export const countriesList: CountryListItem[] = [
     code: "mm", slug: "myanmar",
     nameVi: "Myanmar", nameEn: "Myanmar",
     tagVi: "SMM Panel Myanmar", tagEn: "SMM Panel Myanmar",
-    available: false, href: "#notify", region: "southeast-asia",
+    available: true, href: "/smm-panel-myanmar", region: "southeast-asia",
   },
   {
     code: "la", slug: "laos",
     nameVi: "Lào", nameEn: "Laos",
     tagVi: "SMM Panel Lào", tagEn: "SMM Panel Laos",
-    available: false, href: "#notify", region: "southeast-asia",
+    available: true, href: "/smm-panel-laos", region: "southeast-asia",
   },
   {
     code: "bn", slug: "brunei",

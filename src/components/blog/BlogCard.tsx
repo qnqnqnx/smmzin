@@ -1,9 +1,9 @@
 import Link from "next/link";
-import type { BlogPost } from "@/content/blog/types";
+import type { BlogPostMeta } from "@/content/blog/types";
 import { formatDate } from "@/content/blog/registry";
 import BlogThumbnail from "./BlogThumbnail";
 
-export default function BlogCard({ post }: { post: BlogPost }) {
+export default function BlogCard({ post }: { post: BlogPostMeta }) {
   return (
     <article className="blog-card group">
       <Link href={`/blog/${post.slug}`} className="blog-card-link">

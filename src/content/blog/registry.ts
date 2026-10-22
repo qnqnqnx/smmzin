@@ -1,4 +1,6 @@
 import type { BlogPost } from "./types";
+import { meta as buffLikeMeta, Content as buffLikeContent } from "./posts/buff-like-la-gi";
+import { meta as buffSubMeta, Content as buffSubContent } from "./posts/buff-sub-la-gi";
 
 import { meta as whatIsMeta, Content as whatIsContent } from "./posts/what-is-an-smm-panel";
 import { meta as startBusinessMeta, Content as startBusinessContent } from "./posts/how-to-start-an-smm-panel-business";
@@ -68,6 +70,14 @@ export const ALL_POSTS: BlogPost[] = [
   {
     ...safetyGuideMeta,
     Content: safetyGuideContent,
+  },
+  {
+    ...buffLikeMeta,
+    Content: buffLikeContent,
+  },
+  {
+    ...buffSubMeta,
+    Content: buffSubContent,
   },
 ];
 

@@ -7927,3 +7927,146 @@ html[data-theme="light"] .btt-tooltip::after {
     animation: none !important;
   }
 }
+
+/* ============================================================
+   BLOG UPGRADE: SEARCH & PAGINATION
+   ============================================================ */
+
+/* Nút Category (đổi từ span sang button) */
+.blog-category-pill {
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid var(--border);
+  transition: all 0.2s ease;
+}
+.blog-category-pill:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.blog-category-pill-active {
+  background: rgba(142, 214, 173, 0.12) !important;
+  border-color: rgba(142, 214, 173, 0.4) !important;
+  color: var(--accent) !important;
+}
+
+/* Ô Search cho phép click */
+.blog-search-input {
+  cursor: text;
+  background: transparent;
+  width: 100%;
+}
+.blog-search-input:focus {
+  outline: none;
+}
+.blog-search:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(142, 214, 173, 0.1);
+}
+
+/* Phân trang */
+.blog-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 48px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.blog-page-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.blog-page-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.blog-page-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.blog-page-btn-active {
+  background: rgba(142, 214, 173, 0.12) !important;
+  border-color: rgba(142, 214, 173, 0.4) !important;
+  color: var(--accent) !important;
+}
+
+/* ============================================================
+   LAOS PAGE ANIMATIONS
+   ============================================================ */
+
+@keyframes la-champa-sway-kf {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+@keyframes la-champa-sway-rev-kf {
+  0%, 100% { transform: rotate(3deg); }
+  50% { transform: rotate(-3deg); }
+}
+
+.la-champa-sway {
+  animation: la-champa-sway-kf 5s ease-in-out infinite;
+  transform-origin: 0 30px;
+  transform-box: fill-box;
+}
+
+.la-champa-sway-rev {
+  animation: la-champa-sway-rev-kf 5.5s ease-in-out infinite;
+  transform-origin: 0 30px;
+  transform-box: fill-box;
+}
+
+@keyframes la-star-twinkle-kf {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.15); }
+}
+
+.la-star-twinkle {
+  animation: la-star-twinkle-kf 3s ease-in-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+.la-star-twinkle-rev {
+  animation: la-star-twinkle-kf 3.5s ease-in-out infinite;
+  animation-delay: 1s;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+@keyframes la-flag-float-kf {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-6px) rotate(2deg); }
+}
+
+.la-flag-float {
+  animation: la-flag-float-kf 5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .la-champa-sway,
+  .la-champa-sway-rev,
+  .la-star-twinkle,
+  .la-star-twinkle-rev,
+  .la-flag-float {
+    animation: none !important;
+  }
+}

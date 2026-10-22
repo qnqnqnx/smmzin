@@ -4,6 +4,9 @@
  * Không dùng stock ảnh — self-contained, nhẹ, scalable.
  */
 
+import { BuffLikeThumbnail } from "./thumbnails/BuffLikeThumbnail";
+import { BuffSubThumbnail } from "./thumbnails/BuffSubThumbnail";
+
 type ThumbnailProps = { slug: string };
 
 // Shared wrapper với vignette + noise
@@ -554,6 +557,8 @@ const MAP: Record<string, () => React.ReactElement> = {
   "social-media-trends-2026": ThumbTrends,
   "how-to-choose-best-smm-panel": ThumbChooseBestPanel,
   "smm-panel-safety-guide": ThumbSafetyGuide,
+  "buff-like-la-gi": BuffLikeThumbnail,
+  "buff-sub-la-gi": BuffSubThumbnail,
 };
 
 export default function BlogThumbnail({ slug }: ThumbnailProps) {

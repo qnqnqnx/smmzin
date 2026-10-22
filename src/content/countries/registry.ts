@@ -16,11 +16,15 @@ import { singaporeData } from "./singapore";
 import { cambodiaData } from "./cambodia";
 import { pakistanData } from "./pakistan";
 import { myanmarData } from "./myanmar";
+import { laosData } from "./laos";
 
 // ----- Visuals (dynamic — mỗi cái ~10KB, chỉ load khi cần) -----
 // Next.js tự tách chunk — Vietnam page chỉ load VietnamVisual, không load China/India...
 const VietnamVisual = dynamic(() =>
   import("@/components/country/visuals/VietnamVisual").then((m) => m.VietnamVisual),
+);
+const LaosVisual = dynamic(() =>
+  import("@/components/country/visuals/LaosVisual").then((m) => m.LaosVisual),
 );
 const ChinaVisual = dynamic(() =>
   import("@/components/country/visuals/ChinaVisual").then((m) => m.ChinaVisual),
@@ -73,6 +77,7 @@ export const COUNTRY_DATA: Record<string, CountryData> = {
   cambodia: cambodiaData,
   pakistan: pakistanData,
   myanmar: myanmarData,
+  laos: laosData,
 };
 
 // ------------------------------------------------------------
@@ -182,6 +187,14 @@ export const COUNTRY_VISUALS: Record<string, CountryVisual> = {
     textPosition: "bl",
     artAnimationClass: "",
     flagAnimationClass: "mm-flag-float",
+  },
+  laos: {
+    Art: LaosVisual,
+    artSize: 440,
+    flagPosition: "tr",
+    textPosition: "bl",
+    artAnimationClass: "",
+    flagAnimationClass: "la-flag-float",
   },
 };
 
