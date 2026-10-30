@@ -545,7 +545,7 @@ export function Content(): ReactNode {
         products under the same name.
       </p>
       <p>
-        Before you commit to a panel, ask three questions:
+        Before you commit to a panel, read our <a href="/blog/how-to-choose-best-smm-panel">checklist on how to choose the best SMM panel</a>, and ask three questions:
       </p>
       <ul>
         <li>

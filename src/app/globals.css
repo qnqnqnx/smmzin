@@ -8070,3 +8070,30 @@ html[data-theme="light"] .btt-tooltip::after {
     animation: none !important;
   }
 }
+
+/* ============================================================
+   BLOG ARTICLE: INTERNAL LINKS STYLING (SEO FIX)
+   ============================================================ */
+.blog-article a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  font-weight: 500;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.blog-article a:hover {
+  opacity: 0.8;
+  text-decoration-thickness: 2px;
+}
+
+/* Đảm bảo link trong dark mode hiển thị tốt */
+html[data-theme="dark"] .blog-article a {
+  color: var(--accent);
+}
+
+/* Đảm bảo link trong light mode hiển thị tốt */
+html[data-theme="light"] .blog-article a {
+  color: #2e6b48; /* Màu xanh đậm hơn cho nền sáng */
+}

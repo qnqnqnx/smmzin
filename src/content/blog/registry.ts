@@ -14,6 +14,8 @@ import { meta as automationMeta, Content as automationContent } from "./posts/so
 import { meta as trendsMeta, Content as trendsContent } from "./posts/social-media-trends-2026";
 import { meta as choosePanelMeta, Content as choosePanelContent } from "./posts/how-to-choose-best-smm-panel";
 import { meta as safetyGuideMeta, Content as safetyGuideContent } from "./posts/smm-panel-safety-guide";
+import { meta as smmPanelLaGiMeta, Content as smmPanelLaGiContent } from "./posts/smm-panel-la-gi";
+import { meta as howItWorksMeta, Content as howItWorksContent } from "./posts/smm-panel-and-how-it-works";
 
 /**
  * Registry của tất cả bài blog.
@@ -78,6 +80,14 @@ export const ALL_POSTS: BlogPost[] = [
   {
     ...buffSubMeta,
     Content: buffSubContent,
+  },
+  {
+    ...smmPanelLaGiMeta,
+    Content: smmPanelLaGiContent,
+  },
+  {
+    ...howItWorksMeta,
+    Content: howItWorksContent,
   },
 ];
 

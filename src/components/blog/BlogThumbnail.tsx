@@ -6,6 +6,8 @@
 
 import { BuffLikeThumbnail } from "./thumbnails/BuffLikeThumbnail";
 import { BuffSubThumbnail } from "./thumbnails/BuffSubThumbnail";
+import { SmmPanelLaGiThumbnail } from "./thumbnails/SmmPanelLaGiThumbnail";
+import { SmmPanelHowItWorksThumbnail } from "./thumbnails/SmmPanelHowItWorksThumbnail";
 
 type ThumbnailProps = { slug: string };
 
@@ -559,6 +561,8 @@ const MAP: Record<string, () => React.ReactElement> = {
   "smm-panel-safety-guide": ThumbSafetyGuide,
   "buff-like-la-gi": BuffLikeThumbnail,
   "buff-sub-la-gi": BuffSubThumbnail,
+  "smm-panel-la-gi": SmmPanelLaGiThumbnail,
+  "smm-panel-and-how-it-works": SmmPanelHowItWorksThumbnail,
 };
 
 export default function BlogThumbnail({ slug }: ThumbnailProps) {

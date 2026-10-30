@@ -1,0 +1,74 @@
+
+> smmzin@1.0.0 build
+> python scripts/validate-countries.py && next build
+
+[1/6] Parsing countries-data.ts...
+      Found 32 entries
+[2/6] Checking href <-> slug match...
+[3/6] Checking registry consistency...
+[4/6] Checking data files...
+[5/6] Checking visual files...
+[6/6] Checking page files...
+
+OK: all country data valid (14 available, 18 coming soon)
+  ▲ Next.js 14.2.35
+  - Environments: .env.local
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully
+   Linting and checking validity of types ...
+   Collecting page data ...
+ ⚠ Using edge runtime on a page currently disables static generation for that page
+   Generating static pages (0/43) ...
+   Generating static pages (10/43) 
+   Generating static pages (21/43) 
+   Generating static pages (32/43) 
+ ✓ Generating static pages (43/43)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                     Size     First Load JS
+┌ ○ /                                           4.22 kB         107 kB
+├ ○ /_not-found                                 873 B          88.2 kB
+├ ƒ /api/og                                     0 B                0 B
+├ ƒ /api/og-preview                             0 B                0 B
+├ ○ /blog                                       5.91 kB         109 kB
+├ ● /blog/[slug]                                192 B           103 kB
+├   ├ /blog/what-is-an-smm-panel
+├   ├ /blog/how-to-start-an-smm-panel-business
+├   ├ /blog/smm-panel-vs-agency
+├   └ [+13 more paths]
+├ ○ /legal                                      192 B           103 kB
+├ ○ /legal/cookies                              1.44 kB         104 kB
+├ ○ /legal/disclaimer                           1.44 kB         104 kB
+├ ○ /legal/privacy                              1.44 kB         104 kB
+├ ○ /legal/refund                               1.44 kB         104 kB
+├ ○ /legal/terms                                1.44 kB         104 kB
+├ ○ /robots.txt                                 0 B                0 B
+├ ○ /sitemap.xml                                0 B                0 B
+├ ○ /smm-panel-bangladesh                       141 B           115 kB
+├ ○ /smm-panel-cambodia                         141 B           115 kB
+├ ○ /smm-panel-china                            141 B           115 kB
+├ ○ /smm-panel-india                            141 B           115 kB
+├ ○ /smm-panel-indonesia                        141 B           115 kB
+├ ○ /smm-panel-laos                             141 B           115 kB
+├ ○ /smm-panel-malaysia                         141 B           115 kB
+├ ○ /smm-panel-myanmar                          142 B           115 kB
+├ ○ /smm-panel-pakistan                         140 B           115 kB
+├ ○ /smm-panel-singapore                        141 B           115 kB
+├ ○ /smm-panel-south-korea                      141 B           115 kB
+├ ○ /smm-panel-thailand                         141 B           115 kB
+├ ○ /smm-panel-usa                              142 B           115 kB
+└ ○ /smm-panel-vietnam                          141 B           115 kB
++ First Load JS shared by all                   87.3 kB
+  ├ chunks/117-14dd35a9dd2203e1.js              31.7 kB
+  ├ chunks/fd9d1056-e3d373074663785d.js         53.6 kB
+  └ other shared chunks (total)                 1.96 kB
+
+
+ƒ Middleware                                    26.9 kB
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses getStaticProps)
+ƒ  (Dynamic)  server-rendered on demand
+
