@@ -15,6 +15,8 @@ import { meta as trendsMeta, Content as trendsContent } from "./posts/social-med
 import { meta as choosePanelMeta, Content as choosePanelContent } from "./posts/how-to-choose-best-smm-panel";
 import { meta as safetyGuideMeta, Content as safetyGuideContent } from "./posts/smm-panel-safety-guide";
 import { meta as smmPanelLaGiMeta, Content as smmPanelLaGiContent } from "./posts/smm-panel-la-gi";
+import { meta as vietnamMeta, Content as vietnamContent } from "./posts/smm-panel-vietnam";
+import { meta as providerMeta, Content as providerContent } from "./posts/smm-panel-provider";
 import { meta as howItWorksMeta, Content as howItWorksContent } from "./posts/smm-panel-and-how-it-works";
 
 /**
@@ -89,6 +91,14 @@ export const ALL_POSTS: BlogPost[] = [
     ...howItWorksMeta,
     Content: howItWorksContent,
   },
+  {
+    ...providerMeta,
+    Content: providerContent,
+  },  {
+    ...vietnamMeta,
+    Content: vietnamContent,
+  },
+
 ];
 
 // Sắp xếp mới nhất trước

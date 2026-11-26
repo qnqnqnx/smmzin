@@ -7,6 +7,8 @@
 import { BuffLikeThumbnail } from "./thumbnails/BuffLikeThumbnail";
 import { BuffSubThumbnail } from "./thumbnails/BuffSubThumbnail";
 import { SmmPanelLaGiThumbnail } from "./thumbnails/SmmPanelLaGiThumbnail";
+import { SmmPanelVietnamThumbnail } from "./thumbnails/SmmPanelVietnamThumbnail";
+import { SmmPanelProviderThumbnail } from "./thumbnails/SmmPanelProviderThumbnail";
 import { SmmPanelHowItWorksThumbnail } from "./thumbnails/SmmPanelHowItWorksThumbnail";
 
 type ThumbnailProps = { slug: string };
@@ -562,6 +564,8 @@ const MAP: Record<string, () => React.ReactElement> = {
   "buff-like-la-gi": BuffLikeThumbnail,
   "buff-sub-la-gi": BuffSubThumbnail,
   "smm-panel-la-gi": SmmPanelLaGiThumbnail,
+  "smm-panel-vietnam": SmmPanelVietnamThumbnail,
+  "smm-panel-provider": SmmPanelProviderThumbnail,
   "smm-panel-and-how-it-works": SmmPanelHowItWorksThumbnail,
 };
 

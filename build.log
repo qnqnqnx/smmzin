@@ -15,15 +15,18 @@ OK: all country data valid (14 available, 18 coming soon)
   - Environments: .env.local
 
    Creating an optimized production build ...
+request to https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa0ZL7W0Q5n-wU.woff2 failed, reason: read ECONNRESET
+
+Retrying 1/3...
  ✓ Compiled successfully
    Linting and checking validity of types ...
    Collecting page data ...
  ⚠ Using edge runtime on a page currently disables static generation for that page
-   Generating static pages (0/43) ...
-   Generating static pages (10/43) 
-   Generating static pages (21/43) 
-   Generating static pages (32/43) 
- ✓ Generating static pages (43/43)
+   Generating static pages (0/45) ...
+   Generating static pages (11/45) 
+   Generating static pages (22/45) 
+   Generating static pages (33/45) 
+ ✓ Generating static pages (45/45)
    Finalizing page optimization ...
    Collecting build traces ...
 
@@ -32,12 +35,12 @@ Route (app)                                     Size     First Load JS
 ├ ○ /_not-found                                 873 B          88.2 kB
 ├ ƒ /api/og                                     0 B                0 B
 ├ ƒ /api/og-preview                             0 B                0 B
-├ ○ /blog                                       5.91 kB         109 kB
+├ ○ /blog                                       6.42 kB         109 kB
 ├ ● /blog/[slug]                                192 B           103 kB
 ├   ├ /blog/what-is-an-smm-panel
 ├   ├ /blog/how-to-start-an-smm-panel-business
 ├   ├ /blog/smm-panel-vs-agency
-├   └ [+13 more paths]
+├   └ [+15 more paths]
 ├ ○ /legal                                      192 B           103 kB
 ├ ○ /legal/cookies                              1.44 kB         104 kB
 ├ ○ /legal/disclaimer                           1.44 kB         104 kB
